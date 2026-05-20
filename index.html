@@ -188,7 +188,7 @@ a{text-decoration:none;color:inherit}
 .pc-badge{display:inline-flex;padding:.22rem .75rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:999px;font-family:'Montserrat',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
 
 /* RESPONSIVE */
-@media(max-width:1000px){.two-col,.three-col{grid-template-columns:1fr;gap:2.5rem}.stats-row{grid-template-columns:1fr 1fr}.partner-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr;gap:2rem}.logo-img{height:40px}.process-steps,.pourqui-grid,.valeurs-grid{grid-template-columns:1fr 1fr}.histoire-img-wrap{min-height:300px}}
+@media(max-width:1000px){.two-col,.three-col{grid-template-columns:1fr;gap:2.5rem}.stats-row{grid-template-columns:1fr 1fr}.partner-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr;gap:2rem}.logo-img{height:40px}.process-steps,.pourqui-grid,.valeurs-grid{grid-template-columns:1fr 1fr}.histoire-img-wrap{min-height:300px}.nav,.nav.solid{padding:.9rem 1.25rem;background:rgba(10,31,78,.95);backdrop-filter:blur(20px)}.nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,31,78,.98);backdrop-filter:blur(20px);padding:1.25rem 1.5rem;gap:.15rem;border-bottom:1px solid rgba(255,255,255,.08)}.nav-links.open{display:flex}.burger{display:flex}}
 @media(max-width:700px){.nav,.nav.solid{padding:.9rem 1.25rem;background:rgba(10,31,78,.95);backdrop-filter:blur(20px)}.logo-img{height:34px}.nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,31,78,.98);backdrop-filter:blur(20px);padding:1.25rem 1.5rem;gap:.15rem;border-bottom:1px solid rgba(255,255,255,.08)}.nav-links.open{display:flex}.burger{display:flex}.container{padding:0 1.25rem}.section{padding:3.5rem 0}.cta-box{padding:2.5rem 1.5rem;border-radius:var(--r2)}.form-grid2{grid-template-columns:1fr}.partner-grid{grid-template-columns:1fr}.stats-row{grid-template-columns:1fr 1fr}.process-steps,.pourqui-grid,.valeurs-grid{grid-template-columns:1fr}.histoire-logo-big{width:160px}.histoire-badge{display:none}.mission-card,.pq-card{padding:1.75rem 1.25rem}.cta-box h2{font-size:2.2rem}.footer-copy{font-size:.68rem}}
 
 
@@ -251,6 +251,9 @@ a{text-decoration:none;color:inherit}
 
 /* HERO LOGO IMG */
 .hero-logo img{width:160px;height:auto;filter:drop-shadow(0 20px 60px rgba(0,0,0,.8)) drop-shadow(0 4px 16px rgba(0,0,0,.5));animation:logoBob 6s ease-in-out infinite}
+.hero-logo-watermark{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;pointer-events:none;overflow:hidden}
+.hero-logo-watermark img{width:min(130vw,1300px);height:auto;opacity:.13;filter:drop-shadow(0 0 180px rgba(255,255,255,.3)) blur(2px);animation:wmPulse 9s ease-in-out infinite;transform-origin:center}
+@keyframes wmPulse{0%,100%{opacity:.07;transform:scale(1)}50%{opacity:.12;transform:scale(1.04)}}
 
 /* HISTOIRE SECTION */
 .histoire-img-wrap{position:relative;display:flex;justify-content:center;align-items:center;background:var(--off);border:1px solid var(--border);border-radius:var(--r3);padding:3rem 2rem;box-shadow:var(--sh2);min-height:360px}
@@ -326,18 +329,18 @@ a{text-decoration:none;color:inherit}
     <div class="hero-slide slide-meat" id="s2"></div>
   </div>
   <div class="hero-overlay"></div><div class="hero-vignette"></div><div class="hero-grain"></div><div class="hero-glow"></div><div class="hero-bot-fade"></div>
+  <div class="hero-logo-watermark"><img src="logo (1)-Photoroom.png" alt=""></div>
   <div class="slide-dots">
     <div class="slide-dot active" onclick="gS(0)"></div>
     <div class="slide-dot" onclick="gS(1)"></div>
     <div class="slide-dot" onclick="gS(2)"></div>
   </div>
   <div class="hero-inner">
-    <div class="hero-logo" style="animation:logoDrop .9s cubic-bezier(.22,1,.36,1) both"><img src="logo (1)-Photoroom.png" alt="HAL'ORIGIN"></div>
     <div class="hero-pill"><span class="pdot"></span>Certification Officielle — 100% Viande Tracée</div>
     <h1>HAL<span class="ap">'</span>ORIGIN</h1>
     <div class="hero-tagline"><strong>Le Halal</strong> Validé</div>
     <div class="hero-rule"></div>
-    <p class="hero-desc">Un organisme de certification halal rigoureux, transparent et engagé.<br>— pour une confiance totale du producteur à l'assiette.</p>
+    <p class="hero-desc">Un organisme de certification halal rigoureux, transparent et engagé.<br>Pour une confiance totale du producteur à l'assiette.</p>
     <div class="hero-btns">
       <a href="cahier.html" class="btn btn-white">Notre cahier des charges →</a>
       <a href="partenaires.html" class="btn btn-ghost">Nos partenaires</a>
@@ -359,7 +362,7 @@ a{text-decoration:none;color:inherit}
         <h2 class="h2">Né d'une exigence,<br><em>bâti sur la confiance.</em></h2>
         <div class="body-t">
           <p>Hal'Origin est né d'un constat simple : le marché du halal manquait d'un organisme de certification réellement rigoureux, transparent, et ancré dans les valeurs islamiques authentiques.</p>
-          <p>Fondé par des professionnels du secteur — éleveurs, bouchers, experts en droit islamique — Hal'Origin a développé un cahier des charges exigeant, fondé sur les textes coraniques et les avis des savants les plus reconnus.</p>
+          <p>Fondé par des professionnels du secteur.</p>
           <p>Depuis notre création, nous certifions avec une seule boussole : <strong>la vérité, à chaque étape de la chaîne alimentaire.</strong></p>
         </div>
         <ul class="checklist">
