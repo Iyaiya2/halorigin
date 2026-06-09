@@ -1,6 +1,5 @@
 # 🕌 HALORIGIN – Organisme de Certification Halal
 
-![HALORIGIN Banner](./assets/banner.jpg)
 
 ## 📖 À propos
 
