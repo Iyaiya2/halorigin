@@ -1,0 +1,944 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self';">
+<title>Nos Partenaires — halorigin.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#152d62;--blue:#1a4da8;--blue2:#2060d8;--red:#3fca65;--green:#1a9042;
+  --white:#fff;--off:#f3faf5;--ink:#0a1628;--muted:#516878;--border:#cce0d4;
+  --r:8px;--r2:16px;--r3:24px;
+  --sh:0 2px 8px rgba(10,31,78,.08),0 8px 32px rgba(10,31,78,.07);
+  --sh2:0 16px 56px rgba(10,31,78,.18);
+  --nav-h:72px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+
+/* ============================
+   TOP RED BAR
+   ============================ */
+.top-red-bar{
+  position:fixed;top:0;left:0;right:0;height:2px;z-index:500;
+  background:linear-gradient(90deg,transparent 0%,var(--red) 15%,#5cde7e 50%,var(--red) 85%,transparent 100%);
+}
+
+/* ============================
+   NAVBAR — NOUVEAU DESIGN
+   ============================ */
+.nav{
+  position:fixed;top:2px;left:0;right:0;z-index:400;
+  height:var(--nav-h);
+  display:flex;align-items:center;
+  transition:background .35s ease, box-shadow .35s ease, backdrop-filter .35s ease;
+}
+.nav.solid{
+  background:rgba(12,26,68,.97);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  box-shadow:0 1px 0 rgba(255,255,255,.06), 0 8px 32px rgba(0,0,0,.28);
+}
+.nav-inner{
+  width:100%;max-width:1280px;margin:0 auto;
+  padding:0 2.5rem;
+  display:flex;align-items:center;gap:0;
+}
+
+/* Logo */
+.nav-logo{
+  display:flex;align-items:center;gap:.75rem;
+  text-decoration:none;flex-shrink:0;margin-right:auto;
+}
+.nav-logo-img{
+  height:40px;width:auto;
+  transition:height .3s ease;
+}
+.nav.solid .nav-logo-img{height:34px}
+.nav-logo-fallback{
+  display:none;align-items:center;justify-content:center;
+  width:40px;height:40px;background:var(--red);border-radius:10px;
+  font-family:'Bebas Neue',sans-serif;color:white;font-size:.95rem;letter-spacing:.05em;
+}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1}
+.nav-logo-name{
+  font-family:'Bebas Neue',sans-serif;font-size:1.25rem;
+  color:white;letter-spacing:.1em;
+}
+.nav-logo-sub{
+  font-family:'Montserrat',sans-serif;font-size:.38rem;font-weight:700;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);margin-top:.15rem;
+}
+
+/* Desktop links container */
+.nav-links{
+  display:flex;align-items:center;list-style:none;gap:.15rem;
+  margin-right:1.5rem;
+}
+.nav-links li{position:relative}
+.nav-links a{
+  display:block;
+  font-family:'Montserrat',sans-serif;font-size:.58rem;font-weight:700;
+  letter-spacing:.13em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);
+  padding:.5rem .9rem;
+  border-radius:6px;
+  transition:color .18s, background .18s;
+  white-space:nowrap;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';
+  position:absolute;bottom:0;left:50%;right:50%;
+  height:1.5px;background:var(--red);
+  transition:left .22s ease, right .22s ease;
+  border-radius:2px;
+}
+.nav-links a:hover{color:white}
+.nav-links a:hover::after,
+.nav-links a.active::after{left:.9rem;right:.9rem}
+.nav-links a.active{color:white}
+
+/* CTA Button */
+.nav-cta{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-family:'Montserrat',sans-serif;font-size:.58rem;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:.6rem 1.4rem;
+  background:var(--red);color:white;
+  border-radius:var(--r);
+  border:none;cursor:pointer;
+  transition:background .2s, transform .2s, box-shadow .2s;
+  white-space:nowrap;flex-shrink:0;
+}
+.nav-cta:hover{
+  background:#1dab58;
+  transform:translateY(-1px);
+  box-shadow:0 6px 20px rgba(63,202,101,.45);
+}
+.nav-cta svg{width:12px;height:12px;flex-shrink:0;transition:transform .2s}
+.nav-cta:hover svg{transform:translateX(2px)}
+
+/* Mobile burger */
+.burger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:6px;
+  margin-left:auto;
+}
+.burger span{
+  display:block;width:22px;height:1.5px;
+  background:rgba(255,255,255,.75);border-radius:2px;
+  transition:transform .3s ease, opacity .3s ease, width .3s ease;
+  transform-origin:center;
+}
+.burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);width:22px}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);width:22px}
+
+/* ============================
+   MOBILE MENU OVERLAY
+   ============================ */
+.mobile-menu{
+  position:fixed;top:0;left:0;right:0;bottom:0;z-index:350;
+  background:rgba(5,12,32,.97);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s ease;
+  padding:2rem;
+}
+/* Sur desktop, forcer le masquage même si .open est présent */
+@media(min-width:901px){
+  .mobile-menu{display:none!important}
+  .burger{display:none!important}
+  body.menu-open{overflow:auto}
+}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu-links{
+  display:flex;flex-direction:column;align-items:center;gap:.15rem;
+  list-style:none;width:100%;max-width:320px;
+  margin-bottom:2.5rem;
+}
+.mobile-menu-links li{width:100%;opacity:0;transform:translateY(12px);transition:opacity .3s ease, transform .3s ease}
+.mobile-menu.open .mobile-menu-links li:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+.mobile-menu.open .mobile-menu-links li:nth-child(2){opacity:1;transform:none;transition-delay:.1s}
+.mobile-menu.open .mobile-menu-links li:nth-child(3){opacity:1;transform:none;transition-delay:.15s}
+.mobile-menu.open .mobile-menu-links li:nth-child(4){opacity:1;transform:none;transition-delay:.2s}
+.mobile-menu.open .mobile-menu-links li:nth-child(5){opacity:1;transform:none;transition-delay:.25s}
+.mobile-menu-links a{
+  display:block;width:100%;text-align:center;
+  font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);
+  padding:1rem;border-radius:var(--r);
+  border:1px solid transparent;
+  transition:color .18s, border-color .18s, background .18s;
+}
+.mobile-menu-links a:hover,.mobile-menu-links a.active{
+  color:white;
+  background:rgba(255,255,255,.05);
+  border-color:rgba(255,255,255,.1);
+}
+.mobile-menu-links a.active{color:white}
+.mobile-menu-cta{
+  display:block;width:100%;max-width:280px;text-align:center;
+  font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:800;
+  letter-spacing:.15em;text-transform:uppercase;
+  padding:.9rem 2rem;background:var(--red);color:white;
+  border-radius:var(--r);border:none;cursor:pointer;
+  transition:background .2s;
+  opacity:0;transform:translateY(12px);
+  transition:opacity .3s ease .3s, transform .3s ease .3s, background .2s;
+}
+.mobile-menu.open .mobile-menu-cta{opacity:1;transform:none}
+.mobile-menu-cta:hover{background:#1dab58}
+.mobile-menu-decoration{
+  position:absolute;bottom:3rem;
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  opacity:0;
+  transition:opacity .3s ease .35s;
+}
+.mobile-menu.open .mobile-menu-decoration{opacity:1}
+.mobile-menu-brand{
+  font-family:'Bebas Neue',sans-serif;font-size:1rem;
+  letter-spacing:.2em;color:rgba(255,255,255,.12);
+}
+.mobile-menu-tagline{
+  font-family:'Montserrat',sans-serif;font-size:.5rem;font-weight:700;
+  letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.1);
+}
+
+/* Prevent scroll when menu open */
+body.menu-open{overflow:hidden}
+
+/* ============================
+   BTN
+   ============================ */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.88rem 2rem;border-radius:var(--r);font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:.22s;white-space:nowrap}
+.btn-white{background:var(--white);color:var(--navy)}.btn-white:hover{background:#e6f0ff;transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.2)}
+.btn-outline-white{background:transparent;color:white;border:1.5px solid rgba(255,255,255,.4)}.btn-outline-white:hover{background:rgba(255,255,255,.1);border-color:white}
+.btn-red{background:var(--red);color:white;border-radius:999px}.btn-red:hover{background:#1dab58;transform:translateY(-2px);box-shadow:0 6px 24px rgba(63,202,101,.4)}
+.btn-navy{background:var(--navy);color:white}.btn-navy:hover{background:#0d2a66;transform:translateY(-2px);box-shadow:0 6px 24px rgba(10,31,78,.35)}
+
+/* ============================
+   LAYOUT
+   ============================ */
+.section{padding:5rem 0}
+.section-lg{padding:7rem 0}
+.bg-off{background:var(--off)}
+.bg-navy{background:var(--navy)}
+.container{max-width:1200px;margin:0 auto;padding:0 2rem}
+.eyebrow{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:.75rem}
+.h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4.5vw,4.2rem);font-weight:400;line-height:1;letter-spacing:.02em;color:var(--navy);margin-bottom:1.1rem}
+.h2 em{font-style:italic;font-family:'Montserrat',sans-serif;font-size:65%;font-weight:300;letter-spacing:.05em;color:var(--blue)}
+.body-t{font-size:.93rem;color:var(--muted);line-height:1.85}
+.body-t p{margin-bottom:1rem}
+.tc{text-align:center}
+.tc .body-t{max-width:580px;margin:0 auto}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.rv.in{opacity:1;transform:none}
+
+/* PAGE HERO */
+.page-hero{padding:10rem 0 5rem;position:relative;overflow:hidden;background:linear-gradient(160deg,#2a62cc 0%,var(--navy) 55%,#0d2255 100%)}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,38,.28) 0%,rgba(10,28,65,.10) 100%)}
+.page-hero-content{position:relative;z-index:2}
+.page-eyebrow{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:rgba(63,202,101,.8);display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
+.page-eyebrow::before{content:'';width:24px;height:2px;background:var(--red);flex-shrink:0}
+.page-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,6.5rem);color:white;line-height:.92;letter-spacing:.02em;margin-bottom:1rem}
+.page-h1 .red{color:var(--red)}
+.page-desc{font-size:1rem;color:rgba(255,255,255,.85);max-width:520px;line-height:1.85}
+.page-rule{width:60px;height:3px;background:var(--red);margin:1.5rem 0}
+
+/* MARQUEE */
+.red-band{background:var(--red);padding:1rem 0;overflow:hidden}
+.marquee-track{display:flex;animation:marquee 30s linear infinite;white-space:nowrap}
+.marquee-track span{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.12em;color:white;padding:0 2rem}
+.marquee-track span.sep{color:rgba(255,255,255,.6)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* STATS */
+.stats-band{background:linear-gradient(135deg,var(--navy) 0%,#1a4898 100%);position:relative;overflow:hidden}
+.stats-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 100% at 50%,rgba(32,96,216,.15),transparent);pointer-events:none}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);position:relative;z-index:1}
+.stat{padding:3rem 1.5rem;text-align:center;border-right:1px solid rgba(255,255,255,.07)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:white;line-height:1;margin-bottom:.4rem}
+.stat-accent{color:var(--red)}
+.stat-l{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+
+/* BRAND CARDS */
+.brands-section{padding:5rem 0 3rem}
+.brands-intro{margin-bottom:3rem;text-align:center}
+.brands-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.brand-card{background:white;border:1.5px solid var(--border);border-radius:var(--r2);padding:1.75rem 1.25rem;text-align:center;box-shadow:var(--sh);transition:.3s;cursor:pointer;position:relative;overflow:hidden}
+.brand-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--blue2));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.brand-card:hover::after,.brand-card.selected::after{transform:scaleX(1)}
+.brand-card:hover{border-color:#a0c8a8;box-shadow:var(--sh2);transform:translateY(-4px)}
+.brand-card.selected{border-color:var(--navy);box-shadow:var(--sh2);transform:translateY(-4px)}
+.brand-card.inactive{cursor:default;opacity:.72}
+.brand-card.inactive:hover{transform:none;box-shadow:var(--sh);border-color:var(--border)}
+.brand-card.inactive::after{display:none}
+.bc-logo{width:82px;height:82px;border-radius:50%;background:var(--off);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;overflow:hidden}
+.bc-logo img{width:66px;height:66px;object-fit:contain}
+.bc-logo-dark{background:#111}
+.bc-logo-letter{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--navy)}
+.bc-name{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;color:var(--navy);letter-spacing:.04em;margin-bottom:.15rem;line-height:1}
+.bc-type{font-family:'Montserrat',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8fa0b8;margin-bottom:.75rem}
+.bc-badge{display:inline-flex;padding:.2rem .65rem;border-radius:999px;background:#f0fdf4;border:1px solid #bbf7d0;font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:.85rem}
+.bc-desc{font-size:.78rem;color:var(--muted);line-height:1.65;margin-bottom:.75rem}
+.bc-count{font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;color:var(--blue2)}
+.bc-count-muted{font-family:'Montserrat',sans-serif;font-size:.6rem;color:var(--muted);font-style:italic}
+.brand-card-join{border:2px dashed #a8dab8;background:linear-gradient(160deg,#f6fdf8 0%,white 100%)}
+.brand-card-join:hover{border-color:var(--green);background:linear-gradient(160deg,#edfaf2 0%,white 100%)}
+.brand-card-join .bc-logo{background:linear-gradient(135deg,#e8f9ee,#d1f5de);border-color:#9fe0b4;color:var(--green)}
+.brand-card-join .bc-name{color:var(--green)}
+.brand-card-join .bc-count{color:var(--green);font-weight:800}
+
+/* FILTER BAR */
+.filter-wrap{padding:2rem 0}
+.filter-bar{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap}
+.search-wrap{flex:1;min-width:220px;max-width:340px;position:relative}
+.search-ico{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;width:16px;height:16px}
+.search-wrap input{width:100%;background:white;border:1.5px solid var(--border);border-radius:var(--r);padding:.72rem 1rem .72rem 2.6rem;font-family:'Inter',sans-serif;font-size:.86rem;color:var(--ink);outline:none;transition:.2s}
+.search-wrap input:focus{border-color:var(--blue2);box-shadow:0 0 0 3px rgba(32,96,216,.1)}
+.filter-pills{display:flex;gap:.45rem;flex-wrap:wrap}
+.pill{font-family:'Montserrat',sans-serif;font-size:.57rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:999px;border:1.5px solid var(--border);background:white;color:var(--muted);cursor:pointer;transition:.2s;white-space:nowrap}
+.pill:hover{border-color:#a0c8a8;color:var(--navy)}
+.pill.active{background:var(--navy);color:white;border-color:var(--navy)}
+.result-count{font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:600;color:var(--muted);margin-left:auto;white-space:nowrap}
+
+/* CARDS GRID */
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.pc{background:white;border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;box-shadow:var(--sh);transition:.3s;display:flex;flex-direction:column}
+.pc:hover{border-color:#a0bcf0;box-shadow:var(--sh2);transform:translateY(-4px)}
+.pc-topbar{height:3px}
+.pc-topbar-navy{background:linear-gradient(90deg,var(--navy),var(--blue2))}
+.pc-topbar-red{background:linear-gradient(90deg,var(--red),#5cde7e)}
+.pc-topbar-green{background:linear-gradient(90deg,var(--green),#2d9d5a)}
+.pc-body{padding:1.5rem;flex:1}
+.pc-header{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;margin-bottom:1rem}
+.pc-name{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;color:var(--navy);letter-spacing:.04em;line-height:1}
+.pc-sub{font-family:'Montserrat',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8fa0b8;margin-top:.1rem}
+.pc-badges{display:flex;flex-direction:column;gap:.3rem;align-items:flex-end;flex-shrink:0}
+.badge{display:inline-flex;padding:.18rem .6rem;border-radius:999px;font-family:'Montserrat',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+.bg-green{background:#f0fdf4;border:1px solid #bbf7d0;color:var(--green)}
+.bg-navy{background:#eef2ff;border:1px solid #c7d2fe;color:var(--navy)}
+.bg-red{background:#fff5f5;border:1px solid #fecaca;color:var(--red)}
+.bg-blue{background:#e6f1fb;border:1px solid #b5d4f4;color:var(--blue)}
+.bg-gray{background:#f4f6fb;border:1px solid var(--border);color:var(--muted)}
+.pc-addr{display:flex;gap:.45rem;align-items:flex-start;font-size:.82rem;color:var(--muted);line-height:1.5;margin-bottom:.85rem}
+.pc-addr-ico{flex-shrink:0;margin-top:.15rem;color:var(--red)}
+.pc-stars{display:flex;align-items:center;gap:.12rem;margin-bottom:.85rem}
+.star{font-size:.72rem;color:#f59e0b}
+.star-e{font-size:.72rem;color:#dde3ef}
+.pc-rn{font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;color:var(--ink);margin-left:.3rem}
+.pc-rc{font-size:.68rem;color:var(--muted)}
+.pc-foot{padding:.9rem 1.5rem;border-top:1px solid var(--border);background:var(--off);display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+.pc-seal{display:flex;align-items:center;gap:.3rem;font-family:'Montserrat',sans-serif;font-size:.56rem;font-weight:700;text-transform:uppercase;color:var(--green)}
+.pc-seal-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
+.pc-link{font-family:'Montserrat',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--blue2);display:flex;align-items:center;gap:.3rem;white-space:nowrap;transition:.2s}
+.pc-link:hover{color:var(--navy)}
+.pc-link svg{flex-shrink:0}
+
+/* SECTION DIVIDER */
+.brand-divider{display:flex;align-items:center;gap:1.25rem;margin:3rem 0 1.75rem}
+.brand-divider-line{flex:1;height:1px;background:var(--border)}
+.brand-divider-label{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--navy);letter-spacing:.06em;white-space:nowrap}
+.brand-divider-badge{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;background:var(--off);border:1px solid var(--border);color:var(--muted)}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:5rem 2rem;display:none}
+.empty-state.show{display:block}
+.empty-state h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--navy);margin-bottom:.5rem}
+.empty-state p{font-size:.88rem;color:var(--muted)}
+
+/* PARTNER SECTION */
+.partner-section{padding:6rem 0;background:var(--off)}
+.partner-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.partner-eyebrow{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:.8rem}
+.partner-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,4.5rem);color:var(--navy);line-height:.95;letter-spacing:.02em;margin-bottom:.5rem}
+.partner-title-italic{font-family:'Montserrat',sans-serif;font-style:italic;font-size:clamp(1.6rem,3vw,2.6rem);font-weight:300;color:var(--blue);display:block;line-height:1.1;margin-top:.25rem}
+.partner-desc{font-size:.93rem;color:var(--muted);line-height:1.85;margin-bottom:.85rem}
+.partner-desc strong{color:var(--ink);font-weight:600}
+.partner-cta{margin-top:1.75rem}
+.steps-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+.step-card{background:white;border:1px solid var(--border);border-radius:var(--r2);padding:1.4rem 1.1rem;box-shadow:var(--sh);transition:.25s}
+.step-card:hover{box-shadow:var(--sh2);transform:translateY(-3px);border-color:#a0c8a8}
+.step-ico{width:44px;height:44px;border-radius:12px;background:var(--off);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;font-size:1.3rem}
+.step-title{font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:800;color:var(--navy);margin-bottom:.45rem;line-height:1.2}
+.step-desc{font-size:.74rem;color:var(--muted);line-height:1.6}
+
+/* INFO BAND */
+.info-band{background:linear-gradient(135deg,var(--navy) 0%,#122860 100%);padding:5rem 0;position:relative;overflow:hidden}
+.info-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(63,202,101,.12),transparent)}
+.info-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5rem;position:relative;z-index:1}
+.info-item{display:flex;gap:1.25rem;align-items:flex-start}
+.info-ico{width:48px;height:48px;min-width:48px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center}
+.info-ico svg{width:22px;height:22px;stroke:rgba(255,255,255,.75);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.info-label{font-family:'Montserrat',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.3rem}
+.info-val{font-size:.9rem;color:rgba(255,255,255,.8);line-height:1.6}
+
+/* CTA FINAL */
+.cta-box{background:linear-gradient(135deg,var(--navy) 0%,#0d2255 100%);border-radius:var(--r3);padding:5rem 4rem;text-align:center;position:relative;overflow:hidden;box-shadow:var(--sh2)}
+.cta-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% -10%,rgba(32,96,216,.25),transparent);pointer-events:none}
+.cta-box::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--red),transparent);pointer-events:none}
+.cta-box h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4vw,4rem);color:white;margin-bottom:.9rem;position:relative}
+.cta-box p{color:rgba(255,255,255,.82);max-width:460px;margin:0 auto 2.5rem;font-size:.95rem;position:relative;line-height:1.75}
+
+/* FOOTER */
+.footer{background:#112560;padding:4.5rem 0 2.5rem}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1.2fr;gap:3.5rem;margin-bottom:3.5rem}
+.footer-col h4{font-family:'Montserrat',sans-serif;font-size:.57rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:1.1rem}
+.footer-col a,.footer-col span{display:block;font-size:.83rem;color:rgba(255,255,255,.72);margin-bottom:.5rem;transition:.2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.75rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy,.footer-legal a{font-size:.73rem;color:rgba(255,255,255,.55)}
+.footer-legal{display:flex;gap:1.5rem}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media(max-width:1200px){
+  .nav-inner{padding:0 1.75rem}
+  .brands-row{grid-template-columns:repeat(3,1fr);gap:1rem}
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .info-grid{grid-template-columns:1fr 1fr}
+  .stats-row{grid-template-columns:repeat(4,1fr)}
+  .partner-inner{gap:3rem}
+  .footer-grid{grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
+}
+@media(max-width:1024px){
+  .nav-links a{padding:.45rem .7rem;font-size:.54rem;letter-spacing:.1em}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .stat{border-bottom:1px solid rgba(255,255,255,.07)}
+  .stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.07)}
+  .stat:nth-child(even){border-right:none}
+  .brands-row{grid-template-columns:repeat(3,1fr);gap:1rem}
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .partner-inner{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .steps-grid{grid-template-columns:1fr 1fr 1fr}
+  .info-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+  .footer-grid>.footer-col:first-child{grid-column:1/-1}
+  .cta-box{padding:3.5rem 2.5rem}
+}
+
+/* Breakpoint nav mobile */
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+}
+
+@media(max-width:800px){
+  .nav-inner{padding:0 1.25rem}
+  .container{padding:0 1.1rem}
+  .section{padding:3rem 0}
+  .section-lg{padding:4rem 0}
+  .page-hero{padding:6rem 0 2.5rem}
+  .page-h1{font-size:2.6rem!important}
+  .page-desc{font-size:.86rem}
+  .brands-section{padding:3rem 0 1.5rem}
+  .brands-row{grid-template-columns:repeat(2,1fr);gap:.85rem}
+  .brand-card{padding:1.25rem .9rem}
+  .bc-logo{width:68px;height:68px}
+  .bc-logo img{width:54px;height:54px}
+  .filter-bar{gap:.6rem}
+  .search-wrap{max-width:100%;min-width:100%;order:-1}
+  .result-count{width:100%;margin-left:0;order:10}
+  .filter-pills{gap:.35rem}
+  .cards-grid{grid-template-columns:1fr}
+  .brand-divider-label{font-size:1.4rem}
+  .brand-divider-badge{display:none}
+  .partner-inner{grid-template-columns:1fr;gap:2.5rem}
+  .partner-title{font-size:clamp(2.4rem,8vw,3.5rem)}
+  .steps-grid{grid-template-columns:repeat(3,1fr);gap:.75rem}
+  .step-card{padding:1.1rem .9rem}
+  .step-ico{width:38px;height:38px;font-size:1.1rem}
+  .info-grid{grid-template-columns:1fr}
+  .cta-box{padding:2.5rem 1.25rem;border-radius:var(--r2)}
+  .cta-box h2{font-size:2rem}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+}
+@media(max-width:600px){
+  .stats-row{grid-template-columns:1fr 1fr}
+  .stat{padding:2rem .75rem}
+  .stat-n{font-size:2.8rem}
+  .brands-row{grid-template-columns:1fr 1fr;gap:.75rem}
+  .brand-card{padding:1rem .75rem}
+  .bc-logo{width:60px;height:60px}
+  .bc-logo img{width:46px;height:46px}
+  .bc-name{font-size:1.05rem}
+  .steps-grid{grid-template-columns:1fr 1fr;gap:.75rem}
+  .partner-section{padding:4rem 0}
+  .filter-pills{gap:.3rem}
+  .pill{font-size:.52rem;padding:.3rem .75rem}
+}
+@media(max-width:400px){
+  .brands-row{grid-template-columns:1fr 1fr}
+  .steps-grid{grid-template-columns:1fr 1fr}
+  .page-h1{font-size:2.2rem!important}
+  .cards-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="top-red-bar"></div>
+
+<!-- ============================
+     NAVBAR
+     ============================ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+
+    <!-- Logo -->
+    <a href="/" class="nav-logo">
+      <img
+        src="/logo (1)-Photoroom.png"
+        alt="HAL'ORIGIN"
+        class="nav-logo-img"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+      >
+      <div class="nav-logo-fallback">HO</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">HAL'ORIGIN</span>
+        <span class="nav-logo-sub">Le Halal Validé</span>
+      </div>
+    </a>
+
+    <!-- Desktop Links -->
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/apropos">À notre propos</a></li>
+      <li><a href="/halal">L'Islam &amp; le Halal</a></li>
+      <li><a href="/cahier">Cahier des charges</a></li>
+      <li><a href="/partenaires" class="active">Partenaires</a></li>
+    </ul>
+
+    <!-- Desktop CTA -->
+    <a href="/contact" class="nav-cta">
+      Contact
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+
+    <!-- Mobile Burger -->
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu navigation">
+  <ul class="mobile-menu-links">
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/apropos">À notre propos</a></li>
+    <li><a href="/halal">L'Islam &amp; le Halal</a></li>
+    <li><a href="/cahier">Cahier des charges</a></li>
+    <li><a href="/partenaires" class="active">Partenaires</a></li>
+  </ul>
+  <a href="/contact" class="mobile-menu-cta">Nous contacter →</a>
+  <div class="mobile-menu-decoration">
+    <span class="mobile-menu-brand">HAL'ORIGIN</span>
+    <span class="mobile-menu-tagline">Le Halal Validé</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <div class="page-eyebrow">Réseau certifié Hal'Origin</div>
+    <h1 class="page-h1">Des professionnels engagés<br><span class="red">à nos côtés.</span></h1>
+    <div class="page-rule"></div>
+    <p class="page-desc">Chaque partenaire Hal'Origin s'est engagé à respecter l'intégralité de notre cahier des charges. Présents en France et en Europe, ils font l'objet d'un contrôle inopiné quotidien.</p>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="red-band">
+  <div class="marquee-track" aria-hidden="true">
+    <span>Big M</span><span class="sep">✦</span><span>DPS Market</span><span class="sep">✦</span><span>Mr. Boms</span><span class="sep">✦</span><span>Promeat</span><span class="sep">✦</span><span>Fat Burger</span><span class="sep">✦</span><span>Mahida Food Products</span><span class="sep">✦</span><span>Big M</span><span class="sep">✦</span><span>DPS Market</span><span class="sep">✦</span><span>Mr. Boms</span><span class="sep">✦</span><span>Promeat</span><span class="sep">✦</span><span>Fat Burger</span><span class="sep">✦</span><span>Mahida Food Products</span><span class="sep">✦</span><span>Big M</span><span class="sep">✦</span><span>DPS Market</span><span class="sep">✦</span><span>Mr. Boms</span><span class="sep">✦</span><span>Promeat</span><span class="sep">✦</span><span>Fat Burger</span><span class="sep">✦</span><span>Mahida Food Products</span><span class="sep">✦</span><span>Big M</span><span class="sep">✦</span><span>DPS Market</span><span class="sep">✦</span><span>Mr. Boms</span><span class="sep">✦</span><span>Promeat</span><span class="sep">✦</span><span>Fat Burger</span><span class="sep">✦</span><span>Mahida Food Products</span><span class="sep">✦</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats-row">
+    <div class="stat rv"><div class="stat-n">6<span class="stat-accent">+</span></div><div class="stat-l">Enseignes partenaires</div></div>
+    <div class="stat rv"><div class="stat-n">50<span class="stat-accent">+</span></div><div class="stat-l">Points de vente</div></div>
+    <div class="stat rv"><div class="stat-n">Toute<span class="stat-accent"> </span>l'UE</div><div class="stat-l">Couverture européenne</div></div>
+    <div class="stat rv"><div class="stat-n">100<span class="stat-accent">%</span></div><div class="stat-l">Contrôle inopiné</div></div>
+  </div>
+</div>
+
+<!-- BRAND OVERVIEW -->
+<section class="brands-section">
+  <div class="container">
+    <div class="brands-intro rv">
+      <span class="eyebrow" style="display:block;margin-bottom:.6rem">Nos certifiés</span>
+      <h2 class="h2" style="margin-bottom:.5rem">Des professionnels engagés</h2>
+      <p style="font-size:.93rem;color:var(--muted);max-width:560px;margin:0 auto">Cliquez sur une enseigne pour voir ses adresses. Chaque partenaire est audité régulièrement sans préavis.</p>
+    </div>
+    <div class="brands-row rv">
+      <div class="brand-card" data-brand-filter="big-m" onclick="filterByBrand('big-m',this)">
+        <div class="bc-logo"><img src="/big-m.png" alt="Big M" onerror="this.parentElement.innerHTML='<span class=bc-logo-letter>BM</span>'"></div>
+        <div class="bc-name">Big M</div><div class="bc-type">Restauration</div>
+        <div class="bc-badge">✓ Certifié Hal'Origin</div>
+        <p class="bc-desc">Toutes les viandes sont certifiées Hal'Origin, vérifiées quotidiennement.</p>
+        <div class="bc-count">13 adresses</div>
+      </div>
+      <div class="brand-card" data-brand-filter="dps" onclick="filterByBrand('dps',this)">
+        <div class="bc-logo"><img src="/dps.png" alt="DPS Market" onerror="this.parentElement.innerHTML='<span style=font-family:Montserrat,sans-serif;font-size:.75rem;font-weight:800;color:#16a34a;line-height:1.2>DPS<br>market</span>'"></div>
+        <div class="bc-name">DPS Market</div><div class="bc-type">Grossiste</div>
+        <div class="bc-badge">✓ Certifié Hal'Origin</div>
+        <p class="bc-desc">Distributeur Halal avec traçabilité complète. Zéro VSM garanti.</p>
+        <div class="bc-count">18+ dépôts</div>
+      </div>
+      <div class="brand-card" data-brand-filter="mr-boms" onclick="filterByBrand('mr-boms',this)">
+        <div class="bc-logo bc-logo-dark"><img src="/Logo-mr.boms-valide-300x300.png" alt="Mr. Boms" onerror="this.parentElement.innerHTML='<span style=font-family:Montserrat,sans-serif;font-size:.68rem;font-weight:800;color:#f59e0b;line-height:1.2>MR.<br>BOMS</span>'"></div>
+        <div class="bc-name">Mr. Boms</div><div class="bc-type">Restauration</div>
+        <div class="bc-badge">✓ Certifié Hal'Origin</div>
+        <p class="bc-desc">Restaurant engagé dans la transparence totale. Viandes certifiées Hal'Origin.</p>
+        <div class="bc-count">1 adresse</div>
+      </div>
+      <div class="brand-card inactive">
+        <div class="bc-logo"><img src="/logo-promeat.png" alt="Promeat" onerror="this.parentElement.innerHTML='<span style=font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:800;color:var(--red);line-height:1.2>PRO<br>MEAT</span>'"></div>
+        <div class="bc-name">Promeat</div><div class="bc-type">Grossiste</div>
+        <div class="bc-badge">✓ Certifié Hal'Origin</div>
+        <p class="bc-desc">Grossiste de produits halal de qualité supérieure.</p>
+        <div class="bc-count-muted">Adresses à venir</div>
+      </div>
+      <div class="brand-card" data-brand-filter="fat-burger" onclick="filterByBrand('fat-burger',this)">
+        <div class="bc-logo bc-logo-dark"><img src="/image-Photoroom (18).png" alt="Fat Burger" onerror="this.parentElement.innerHTML='<span style=font-family:Bebas+Neue,sans-serif;font-size:.9rem;color:white;letter-spacing:.04em;line-height:1.2>FAT<br>BURGER</span>'"></div>
+        <div class="bc-name">Fat Burger</div><div class="bc-type">Restauration</div>
+        <div class="bc-badge">✓ Certifié Hal'Origin</div>
+        <p class="bc-desc">Burgers halal généreux. Viandes 100% traçables, certifiées Hal'Origin.</p>
+        <div class="bc-count">1 adresse</div>
+      </div>
+      <div class="brand-card" data-brand-filter="mahida" onclick="filterByBrand('mahida',this)">
+        <div class="bc-logo"><img src="/mahida.png" alt="Mahida Food Products" onerror="this.parentElement.innerHTML='<span style=font-family:Bebas+Neue,sans-serif;font-size:1.1rem;color:var(--navy);letter-spacing:.06em>MF</span>'"></div>
+        <div class="bc-name">Mahida Food</div><div class="bc-type">Fabricant · IQF</div>
+        <div class="bc-badge">✓ Certifié Hal'Origin</div>
+        <p class="bc-desc">Produits de volaille IQF surgelés certifiés. Grossiste restauration &amp; épiceries.</p>
+        <div class="bc-count">1 adresse</div>
+      </div>
+      <div class="brand-card brand-card-join rv" onclick="window.location='/contact#cf'" style="cursor:pointer">
+        <div class="bc-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="34" height="34"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <div class="bc-name">+ Rejoindre</div>
+        <div class="bc-type">Devenez partenaire</div>
+        <div class="bc-badge">Certification disponible</div>
+        <p class="bc-desc">Restaurateur, distributeur ou fabricant&nbsp;? Rejoignez le réseau certifié Hal'Origin.</p>
+        <div class="bc-count">Nous contacter →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LISTING SECTION -->
+<section class="section bg-off" id="listing-section">
+  <div class="container">
+    <div class="filter-wrap rv">
+      <div class="filter-bar">
+        <div class="search-wrap">
+          <svg class="search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="search-input" placeholder="Rechercher une ville, une enseigne…" autocomplete="off">
+        </div>
+        <div class="filter-pills">
+          <button class="pill active" data-filter="all" onclick="setPill(this,'all')">Tout voir</button>
+          <button class="pill" data-filter="big-m" onclick="setPill(this,'big-m')">Big M</button>
+          <button class="pill" data-filter="dps" onclick="setPill(this,'dps')">DPS Market</button>
+          <button class="pill" data-filter="mr-boms" onclick="setPill(this,'mr-boms')">Mr. Boms</button>
+          <button class="pill" data-filter="fat-burger" onclick="setPill(this,'fat-burger')">Fat Burger</button>
+          <button class="pill" data-filter="mahida" onclick="setPill(this,'mahida')">Mahida Food</button>
+        </div>
+        <span class="result-count" id="result-count">34 établissements</span>
+      </div>
+    </div>
+
+    <div id="grid-wrap">
+      <!-- BIG M -->
+      <div class="brand-divider" data-group="big-m"><div class="brand-divider-line"></div><span class="brand-divider-label">Big M</span><span class="brand-divider-badge">Restauration · 13 adresses</span><div class="brand-divider-line"></div></div>
+      <div class="cards-grid" id="grid-big-m">
+        <div class="pc rv" data-brand="big-m" data-name="big m saint-denis félix faure"><div class="pc-topbar pc-topbar-navy"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">Big M</div><div class="pc-sub">Fast-Food Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-navy">93 · Saint-Denis</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>4 bd Félix Faure<br>93200 Saint-Denis</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="pc-rn">4.3</span><span class="pc-rc">(1 467)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=Big+M+4+bd+Felix+Faure+93200+Saint-Denis" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="big-m" data-name="big m bondy jules guesde"><div class="pc-topbar pc-topbar-navy"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">Big M</div><div class="pc-sub">Fast-Food Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-navy">93 · Bondy</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>24 rue Jules Guesde<br>93140 Bondy</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="pc-rn">4.4</span><span class="pc-rc">(777)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=Big+M+24+rue+Jules+Guesde+93140+Bondy" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="big-m" data-name="big m villepinte saint exupery"><div class="pc-topbar pc-topbar-navy"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">Big M</div><div class="pc-sub">Fast-Food Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-navy">93 · Villepinte</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>2 allée Antoine de Saint-Exupéry<br>93420 Villepinte</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star-e">★</span><span class="pc-rn">3.8</span><span class="pc-rc">(158)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=Big+M+Villepinte+93420" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="big-m" data-name="big m aulnay parinor"><div class="pc-topbar pc-topbar-navy"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">Big M</div><div class="pc-sub">Fast-Food · O'Parinor</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-navy">93 · Aulnay</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Centre Commercial O'Parinor<br>93600 Aulnay-sous-Bois</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="pc-rn">4.1</span><span class="pc-rc">(161)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=Big+M+O%27Parinor+Aulnay+93600" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="big-m" data-name="big m saint ouen bauer"><div class="pc-topbar pc-topbar-navy"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">Big M</div><div class="pc-sub">Fast-Food Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-navy">93 · Saint-Ouen</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>45 rue du Docteur Bauer<br>93400 Saint-Ouen</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star-e">★</span><span class="pc-rn">4.0</span><span class="pc-rc">(169)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=Big+M+45+rue+Dr+Bauer+93400+Saint-Ouen" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="big-m" data-name="big m rosny sous bois"><div class="pc-topbar pc-topbar-navy"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">Big M</div><div class="pc-sub">Fast-Food · Rosny 2</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-navy">93 · Rosny</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Avenue du Général de Gaulle<br>93110 Rosny-sous-Bois</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star-e">★</span><span class="pc-rn">4.0</span><span class="pc-rc">(511)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=Big+M+Avenue+General+de+Gaulle+93110+Rosny" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="big-m" data-name="big m claye souilly"><div class="pc-topbar pc-topbar-navy"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">Big M</div><div class="pc-sub">Fast-Food Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-gray">77 · Claye-Souilly</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Centre Commercial<br>77410 Claye-Souilly</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star-e">★</span><span class="pc-rn">3.7</span><span class="pc-rc">(403)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=Big+M+Centre+Commercial+77410+Claye-Souilly" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="big-m" data-name="big m nanterre"><div class="pc-topbar pc-topbar-navy"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">Big M</div><div class="pc-sub">Fast-Food Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-blue">92 · Nanterre</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>5 place de la Boule<br>92000 Nanterre</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star-e">★</span><span class="pc-rn">3.8</span><span class="pc-rc">(101)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=Big+M+5+place+de+la+Boule+92000+Nanterre" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="big-m" data-name="big m boulogne billancourt jules guesde"><div class="pc-topbar pc-topbar-navy"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">Big M</div><div class="pc-sub">Fast-Food Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-blue">92 · Boulogne</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>5 place Jules Guesde<br>92100 Boulogne-Billancourt</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="pc-rn">4.3</span><span class="pc-rc">(413)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=Big+M+5+Place+Jules+Guesde+92100+Boulogne" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="big-m" data-name="big m bagneux victor hugo"><div class="pc-topbar pc-topbar-navy"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">Big M</div><div class="pc-sub">Fast-Food Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-blue">92 · Bagneux</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>8 avenue Victor Hugo<br>92220 Bagneux</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="pc-rn">4.5</span><span class="pc-rc">(150)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=Big+M+8+avenue+Victor+Hugo+92220+Bagneux" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="big-m" data-name="big m paris 20 pyrénées"><div class="pc-topbar pc-topbar-navy"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">Big M Paris</div><div class="pc-sub">Fast-Food · 20e arr.</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-red">75 · Paris</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>74 rue des Pyrénées<br>75020 Paris</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="pc-rn">4.8</span><span class="pc-rc">(478)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=Big+M+74+rue+des+Pyrenees+75020+Paris" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="big-m" data-name="big m saint ouen aumone mail"><div class="pc-topbar pc-topbar-navy"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">Big M</div><div class="pc-sub">Fast-Food Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-gray">95 · Val-d'Oise</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>1 rue du Mail<br>95310 Saint-Ouen-l'Aumône</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="pc-rn">4.3</span><span class="pc-rc">(431)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=Big+M+1+rue+du+Mail+95310+Saint-Ouen-l%27Aumone" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+      </div>
+
+      <!-- DPS MARKET -->
+      <div class="brand-divider" data-group="dps"><div class="brand-divider-line"></div><span class="brand-divider-label">DPS Market</span><span class="brand-divider-badge">Grossiste Halal · 18+ dépôts</span><div class="brand-divider-line"></div></div>
+      <div class="cards-grid" id="grid-dps">
+        <div class="pc rv" data-brand="dps" data-name="dps market nanterre 92"><div class="pc-topbar pc-topbar-green"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">DPS Market</div><div class="pc-sub">Grossiste Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-blue">92 · Nanterre</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>12 rue des Peupliers<br>92000 Nanterre</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="pc-rn">4.2</span><span class="pc-rc">(121)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=DPS+Market+12+rue+des+Peupliers+92000+Nanterre" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="dps" data-name="dps market villeneuve la garenne 92"><div class="pc-topbar pc-topbar-green"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">DPS Market</div><div class="pc-sub">Grossiste Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-blue">92 · Villeneuve-la-G.</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>44–46 av. du 8 Mai 1945<br>92390 Villeneuve-la-Garenne</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star-e">★</span><span class="pc-rn">3.8</span><span class="pc-rc">(51)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=DPS+Market+44+av+du+8+Mai+1945+92390+Villeneuve-la-Garenne" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="dps" data-name="dps market marseille 13"><div class="pc-topbar pc-topbar-green"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">DPS Market Place</div><div class="pc-sub">Grossiste Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-gray">13 · Marseille</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>27 bd Charles Moretti<br>13014 Marseille</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="pc-rn">4.1</span><span class="pc-rc">(47)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=DPS+Market+27+bd+Charles+Moretti+13014+Marseille" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="dps" data-name="dps market bordeaux 33"><div class="pc-topbar pc-topbar-green"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">DPS Market Place</div><div class="pc-sub">Grossiste Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-gray">33 · Bordeaux</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>9 rue Édouard Faure<br>33300 Bordeaux</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="pc-rn">4.3</span><span class="pc-rc">(43)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=DPS+Market+9+rue+Edouard+Faure+33300+Bordeaux" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="dps" data-name="dps market toulouse 31"><div class="pc-topbar pc-topbar-green"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">DPS Market Place</div><div class="pc-sub">Grossiste Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-gray">31 · Toulouse</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>88 bd de Courties<br>31120 Portet-sur-Garonne</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="pc-rn">4.3</span><span class="pc-rc">(45)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=DPS+Market+88+bd+de+Courties+31120+Portet-sur-Garonne" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+        <div class="pc rv" data-brand="dps" data-name="dps market vaulx-en-velin lyon 69"><div class="pc-topbar pc-topbar-green"></div><div class="pc-body"><div class="pc-header"><div><div class="pc-name">DPS Market</div><div class="pc-sub">Grossiste Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-gray">69 · Lyon</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>33 rue Ernest Renan<br>69120 Vaulx-en-Velin</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star-e">★</span><span class="pc-rn">4.0</span><span class="pc-rc">(149)</span></div></div><div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=DPS+Market+33+rue+Ernest+Renan+69120+Vaulx-en-Velin" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div></div>
+      </div>
+
+      <!-- MR. BOMS -->
+      <div class="brand-divider" data-group="mr-boms"><div class="brand-divider-line"></div><span class="brand-divider-label">Mr. Boms</span><span class="brand-divider-badge">Restauration · Smash Burger</span><div class="brand-divider-line"></div></div>
+      <div class="cards-grid" id="grid-mr-boms">
+        <div class="pc rv" data-brand="mr-boms" data-name="mr boms villeneuve la guyard 89">
+          <div class="pc-topbar" style="height:3px;background:linear-gradient(90deg,#111,#f59e0b)"></div>
+          <div class="pc-body"><div class="pc-header"><div><div class="pc-name">Mr. Boms</div><div class="pc-sub">Smash Burger Halal</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-gray">89 · Yonne</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>55 Grande Rue<br>89340 Villeneuve-la-Guyard</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="pc-rn">4.8</span><span class="pc-rc">(315)</span></div></div>
+          <div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=Mr+Boms+55+Grande+Rue+89340+Villeneuve-la-Guyard" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div>
+        </div>
+      </div>
+
+      <!-- FAT BURGER -->
+      <div class="brand-divider" data-group="fat-burger"><div class="brand-divider-line"></div><span class="brand-divider-label">Fat Burger</span><span class="brand-divider-badge">Restauration · 1 adresse</span><div class="brand-divider-line"></div></div>
+      <div class="cards-grid" id="grid-fat-burger">
+        <div class="pc rv" data-brand="fat-burger" data-name="fat burger rosny sous bois">
+          <div class="pc-topbar pc-topbar-red"></div>
+          <div class="pc-body"><div class="pc-header"><div><div class="pc-name">Fat Burger</div><div class="pc-sub">Burger Halal Américain</div></div><div class="pc-badges"><span class="badge bg-green">✓ Certifié</span><span class="badge bg-navy">93 · Rosny</span></div></div><div class="pc-addr"><svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Avenue du Général de Gaulle<br>93110 Rosny-sous-Bois</div><div class="pc-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="pc-rn">4.8</span><span class="pc-rc">(262)</span></div></div>
+          <div class="pc-foot"><span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span><a href="https://maps.google.com/?q=Fatburger+Avenue+General+de+Gaulle+93110+Rosny" target="_blank" rel="noopener noreferrer" class="pc-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Itinéraire</a></div>
+        </div>
+      </div>
+
+      <!-- MAHIDA FOOD PRODUCTS -->
+      <div class="brand-divider" data-group="mahida"><div class="brand-divider-line"></div><span class="brand-divider-label">Mahida Food Products</span><span class="brand-divider-badge">Fabricant · 1 adresse</span><div class="brand-divider-line"></div></div>
+      <div class="cards-grid" id="grid-mahida">
+        <div class="pc rv" data-brand="mahida" data-name="mahida food products luxembourg rue large">
+          <div class="pc-topbar pc-topbar-navy"></div>
+          <div class="pc-body">
+            <div class="pc-header">
+              <div>
+                <div class="pc-name">Mahida Food Products</div>
+                <div class="pc-sub">Fabricant · Poulet IQF Surgelé</div>
+              </div>
+              <div class="pc-badges">
+                <span class="badge bg-green">✓ Certifié</span>
+                <span class="badge bg-gray">🇱🇺 Luxembourg</span>
+              </div>
+            </div>
+            <div class="pc-addr">
+              <svg class="pc-addr-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              9, rue Large<br>Luxembourg 1917
+            </div>
+            <p style="font-size:.81rem;color:var(--muted);line-height:1.65;margin-bottom:.85rem">Développe et commercialise des produits de volaille transformés IQF surgelés à destination des grossistes de la restauration collective et des épiceries. Distribution à l'échelle européenne.</p>
+          </div>
+          <div class="pc-foot">
+            <span class="pc-seal"><span class="pc-seal-dot"></span>Halal certifié</span>
+            <a href="https://maps.google.com/?q=9+rue+Large+Luxembourg+1917" target="_blank" rel="noopener noreferrer" class="pc-link">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              Localisation
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="empty-state" id="empty-state">
+        <h3>Aucun résultat</h3>
+        <p>Aucune enseigne ne correspond à votre recherche. Essayez un autre terme.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO BAND -->
+<div class="info-band rv">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-ico"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg></div>
+        <div><div class="info-label">Audits réguliers</div><div class="info-val">Chaque enseigne fait l'objet d'audits réguliers et inopinés pour garantir la conformité permanente à notre cahier des charges.</div></div>
+      </div>
+      <div class="info-item">
+        <div class="info-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div><div class="info-label">Traçabilité totale</div><div class="info-val">De l'abattoir à l'assiette, chaque lot de viande est tracé et documenté. L'origine de chaque produit est vérifiable à tout moment.</div></div>
+      </div>
+      <div class="info-item">
+        <div class="info-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><div class="info-label">Certification rigoureuse</div><div class="info-val">Hal'Origin est le seul organisme appliquant l'intégralité des conditions islamiques sans compromis ni exception.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTNER SECTION -->
+<section class="partner-section rv">
+  <div class="container">
+    <div class="partner-inner">
+      <div class="partner-left">
+        <div class="partner-eyebrow">Vous voulez nous rejoindre ?</div>
+        <h2 class="partner-title">DEVENEZ<br>PARTENAIRE<span class="partner-title-italic">Hal'Origin.</span></h2>
+        <p class="partner-desc">Hal'Origin accueille tout professionnel de la filière viande Halal qui s'engage à respecter notre cahier des charges. Boucheries, restaurants, ateliers de découpe, distributeurs, abattoirs.</p>
+        <p class="partner-desc"><strong>Il n'y a pas de frais d'adhésion cachés.</strong> Le coût de la certification est transparent et défini lors de votre premier entretien avec notre équipe.</p>
+        <div class="partner-cta"><a href="/contact" class="btn btn-navy">Soumettre ma candidature →</a></div>
+      </div>
+      <div class="partner-right">
+        <div class="steps-grid">
+          <div class="step-card rv"><div class="step-ico">📋</div><div class="step-title">Candidature</div><div class="step-desc">Remplissez notre formulaire de contact en précisant votre type d'activité.</div></div>
+          <div class="step-card rv"><div class="step-ico">🔍</div><div class="step-title">Audit initial</div><div class="step-desc">Nos contrôleurs effectuent une visite initiale pour évaluer vos installations.</div></div>
+          <div class="step-card rv"><div class="step-ico">✅</div><div class="step-title">Certification</div><div class="step-desc">Si les exigences sont respectées, la certification est délivrée immédiatement.</div></div>
+          <div class="step-card rv"><div class="step-ico">🔄</div><div class="step-title">Contrôle continu</div><div class="step-desc">1 visite inopinée quotidienne pour maintenir la certification active.</div></div>
+          <div class="step-card rv"><div class="step-ico">🏷️</div><div class="step-title">Labellisation</div><div class="step-desc">Vous recevez les estampilles, étiquettes et supports de communication Hal'Origin.</div></div>
+          <div class="step-card rv"><div class="step-ico">📣</div><div class="step-title">Mise en avant</div><div class="step-desc">Votre établissement est référencé sur notre site et nos supports officiels.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section">
+  <div class="container">
+    <div class="cta-box rv">
+      <h2>Prêt à rejoindre le réseau ?</h2>
+      <p>Contactez notre équipe pour démarrer votre processus de certification Hal'Origin.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="/contact" class="btn btn-white">Nous contacter →</a>
+        <a href="/cahier" class="btn btn-outline-white">Cahier des charges</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div style="margin-bottom:1rem"><img src="/logo (1)-Photoroom.png" alt="HAL'ORIGIN" style="height:56px;width:auto" onerror="this.style.display='none'"></div>
+        <p style="font-size:.83rem;color:rgba(255,255,255,.72);max-width:230px;line-height:1.75">Certification Halal rigoureuse depuis 2020.<br>Traçabilité totale, zéro compromis.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="/">Accueil</a><a href="/apropos">À notre propos</a><a href="/halal">L'Islam &amp; le Halal</a><a href="/cahier">Cahier des charges</a><a href="/partenaires">Partenaires</a><a href="/contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:0660243658">06 60 24 36 58</a>
+        <a href="mailto:halorigin.controle@gmail.com">halorigin.controle@gmail.com</a>
+        <span>4 place Claudel<br>78180 Montigny-le-Bretonneux</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Hal'Origin — Tous droits réservés</span>
+      <div class="footer-legal"><a href="/mentions-legales">Mentions légales</a><a href="/politique-de-confidentialite">Confidentialité</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* NAV SCROLL */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60));
+
+/* BURGER / MOBILE MENU */
+const burger=document.getElementById('burger');
+const mobileMenu=document.getElementById('mobile-menu');
+burger.addEventListener('click',()=>{
+  const isOpen=mobileMenu.classList.contains('open');
+  mobileMenu.classList.toggle('open');
+  burger.classList.toggle('open');
+  burger.setAttribute('aria-expanded',String(!isOpen));
+  document.body.classList.toggle('menu-open');
+});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  mobileMenu.classList.remove('open');
+  burger.classList.remove('open');
+  burger.setAttribute('aria-expanded','false');
+  document.body.classList.remove('menu-open');
+}));
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&mobileMenu.classList.contains('open')){
+    mobileMenu.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    document.body.classList.remove('menu-open');
+  }
+});
+window.addEventListener('resize',()=>{
+  if(window.innerWidth>900){
+    mobileMenu.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    document.body.classList.remove('menu-open');
+  }
+});
+
+/* SCROLL REVEAL */
+const io=new IntersectionObserver(entries=>entries.forEach((e,i)=>{
+  if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*60);io.unobserve(e.target)}
+}),{threshold:.06});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* FILTER */
+const allCards=document.querySelectorAll('.pc');
+const searchInput=document.getElementById('search-input');
+const resultCount=document.getElementById('result-count');
+const emptyState=document.getElementById('empty-state');
+const dividers=document.querySelectorAll('.brand-divider');
+let activeFilter='all';
+let searchVal='';
+
+function updateCount(){
+  let n=0;
+  allCards.forEach(c=>{if(c.style.display!=='none')n++});
+  resultCount.textContent=n+' établissement'+(n>1?'s':'');
+  emptyState.classList.toggle('show',n===0);
+  dividers.forEach(d=>{
+    const g=d.dataset.group;
+    const gridEl=document.getElementById('grid-'+g);
+    if(!gridEl)return;
+    const visible=[...gridEl.querySelectorAll('.pc')].some(c=>c.style.display!=='none');
+    d.style.display=visible?'':'none';
+    gridEl.style.display=visible?'':'none';
+  });
+}
+function filterAll(){
+  allCards.forEach(card=>{
+    const brand=card.dataset.brand;
+    const name=card.dataset.name||'';
+    const matchBrand=activeFilter==='all'||brand===activeFilter;
+    const matchSearch=!searchVal||name.includes(searchVal.toLowerCase());
+    card.style.display=(matchBrand&&matchSearch)?'flex':'none';
+  });
+  updateCount();
+}
+function setPill(el,f){
+  activeFilter=f;
+  document.querySelectorAll('.pill').forEach(p=>p.classList.toggle('active',p.dataset.filter===f));
+  document.querySelectorAll('.brand-card').forEach(b=>b.classList.toggle('selected',b.dataset.brandFilter===f));
+  filterAll();
+}
+function filterByBrand(f,el){
+  const isActive=el.classList.contains('selected');
+  const newFilter=isActive?'all':f;
+  activeFilter=newFilter;
+  document.querySelectorAll('.pill').forEach(p=>p.classList.toggle('active',p.dataset.filter===newFilter));
+  document.querySelectorAll('.brand-card').forEach(b=>b.classList.remove('selected'));
+  if(!isActive)el.classList.add('selected');
+  filterAll();
+  setTimeout(()=>document.getElementById('listing-section').scrollIntoView({behavior:'smooth',block:'start'}),100);
+}
+searchInput.addEventListener('input',e=>{searchVal=e.target.value.trim();filterAll();});
+filterAll();
+</script>
+</body>
+</html>

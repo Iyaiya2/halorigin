@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self';">
+<title>Mentions légales — Hal'Origin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#152d62;--blue:#1a4da8;--blue2:#2060d8;--red:#3fca65;--green:#1a9042;
+  --white:#fff;--off:#f3faf5;--ink:#0a1628;--muted:#516878;--border:#cce0d4;
+  --r:8px;--r2:16px;--r3:24px;
+  --sh:0 2px 8px rgba(10,31,78,.08),0 8px 32px rgba(10,31,78,.07);
+  --sh2:0 16px 56px rgba(10,31,78,.18);
+  --nav-h:72px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+
+.top-red-bar{position:fixed;top:0;left:0;right:0;height:2px;z-index:500;background:linear-gradient(90deg,transparent 0%,var(--red) 15%,#5cde7e 50%,var(--red) 85%,transparent 100%)}
+.nav{position:fixed;top:2px;left:0;right:0;z-index:400;height:var(--nav-h);display:flex;align-items:center;transition:background .35s ease,box-shadow .35s ease,backdrop-filter .35s ease}
+.nav.solid{background:rgba(12,26,68,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 0 rgba(255,255,255,.06),0 8px 32px rgba(0,0,0,.28)}
+.nav-inner{width:100%;max-width:1280px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;gap:0}
+.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;flex-shrink:0;margin-right:auto}
+.nav-logo-img{height:40px;width:auto;transition:height .3s ease}
+.nav.solid .nav-logo-img{height:34px}
+.nav-logo-fallback{display:none;align-items:center;justify-content:center;width:40px;height:40px;background:var(--red);border-radius:10px;font-family:'Bebas Neue',sans-serif;color:white;font-size:.95rem;letter-spacing:.05em}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1}
+.nav-logo-name{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;color:white;letter-spacing:.1em}
+.nav-logo-sub{font-family:'Montserrat',sans-serif;font-size:.38rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:.15rem}
+.nav-links{display:flex;align-items:center;list-style:none;gap:.15rem;margin-right:1.5rem}
+.nav-links li{position:relative}
+.nav-links a{display:block;font-family:'Montserrat',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.6);padding:.5rem .9rem;border-radius:6px;transition:color .18s,background .18s;white-space:nowrap;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:1.5px;background:var(--red);transition:left .22s ease,right .22s ease;border-radius:2px}
+.nav-links a:hover{color:white}
+.nav-links a:hover::after,.nav-links a.active::after{left:.9rem;right:.9rem}
+.nav-links a.active{color:white}
+.nav-cta{display:inline-flex;align-items:center;gap:.45rem;font-family:'Montserrat',sans-serif;font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.7rem;background:var(--red);color:white;border-radius:999px;border:none;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s;white-space:nowrap;flex-shrink:0}
+.nav-cta:hover{background:#1dab58;transform:translateY(-1px);box-shadow:0 6px 20px rgba(63,202,101,.45)}
+.nav-cta svg{width:12px;height:12px;flex-shrink:0;transition:transform .2s}
+.nav-cta:hover svg{transform:translateX(2px)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;margin-left:auto}
+.burger span{display:block;width:22px;height:1.5px;background:rgba(255,255,255,.75);border-radius:2px;transition:transform .3s ease,opacity .3s ease,width .3s ease;transform-origin:center}
+.burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);width:22px}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);width:22px}
+.mobile-menu{position:fixed;top:0;left:0;right:0;bottom:0;z-index:350;background:rgba(5,12,32,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;pointer-events:none;transition:opacity .3s ease;padding:2rem}
+@media(min-width:901px){.mobile-menu{display:none!important}.burger{display:none!important}body.menu-open{overflow:auto}}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu-links{display:flex;flex-direction:column;align-items:center;gap:.15rem;list-style:none;width:100%;max-width:320px;margin-bottom:2.5rem}
+.mobile-menu-links li{width:100%;opacity:0;transform:translateY(12px);transition:opacity .3s ease,transform .3s ease}
+.mobile-menu.open .mobile-menu-links li:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+.mobile-menu.open .mobile-menu-links li:nth-child(2){opacity:1;transform:none;transition-delay:.1s}
+.mobile-menu.open .mobile-menu-links li:nth-child(3){opacity:1;transform:none;transition-delay:.15s}
+.mobile-menu.open .mobile-menu-links li:nth-child(4){opacity:1;transform:none;transition-delay:.2s}
+.mobile-menu.open .mobile-menu-links li:nth-child(5){opacity:1;transform:none;transition-delay:.25s}
+.mobile-menu-links a{display:block;width:100%;text-align:center;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.80);padding:1rem;border-radius:var(--r);border:1px solid transparent;transition:color .18s,border-color .18s,background .18s}
+.mobile-menu-links a:hover,.mobile-menu-links a.active{color:white;background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
+.mobile-menu-cta{display:block;width:100%;max-width:280px;text-align:center;font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:.9rem 2rem;background:var(--red);color:white;border-radius:999px;border:none;cursor:pointer;opacity:0;transform:translateY(12px);transition:opacity .3s ease .3s,transform .3s ease .3s,background .2s}
+.mobile-menu.open .mobile-menu-cta{opacity:1;transform:none}
+.mobile-menu-cta:hover{background:#1dab58}
+.mobile-menu-decoration{position:absolute;bottom:3rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;transition:opacity .3s ease .35s}
+.mobile-menu.open .mobile-menu-decoration{opacity:1}
+.mobile-menu-brand{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.2em;color:rgba(255,255,255,.12)}
+.mobile-menu-tagline{font-family:'Montserrat',sans-serif;font-size:.5rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.1)}
+body.menu-open{overflow:hidden}
+@media(max-width:900px){.nav-links,.nav-cta{display:none}.burger{display:flex}}
+.container{max-width:1180px;margin:0 auto;padding:0 3rem}
+.section{padding:7.5rem 0}
+.bg-off{background:var(--off)}
+.eyebrow{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:.75rem}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.rv.in{opacity:1;transform:none}
+.page-hero{padding:10rem 0 5rem;position:relative;overflow:hidden;background:linear-gradient(160deg,#2a62cc 0%,var(--navy) 55%,#0d2255 100%)}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,38,.28) 0%,rgba(10,28,65,.10) 100%)}
+.page-hero-content{position:relative;z-index:2}
+.page-eyebrow{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:rgba(63,202,101,.8);display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
+.page-eyebrow::before{content:'';width:24px;height:2px;background:var(--red);flex-shrink:0}
+.page-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,6.5rem);color:white;line-height:.92;letter-spacing:.02em;margin-bottom:1rem}
+.page-desc{font-size:1rem;color:rgba(255,255,255,.85);max-width:520px;line-height:1.85}
+.page-rule{width:60px;height:3px;background:var(--red);margin:1.5rem 0}
+.footer{background:#112560;padding:4.5rem 0 2.5rem}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1.2fr;gap:3.5rem;margin-bottom:3.5rem}
+.footer-col h4{font-family:'Montserrat',sans-serif;font-size:.57rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:1.1rem}
+.footer-col a,.footer-col span{display:block;font-size:.83rem;color:rgba(255,255,255,.72);margin-bottom:.5rem;transition:.2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.75rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy,.footer-legal a{font-size:.73rem;color:rgba(255,255,255,.55)}
+.footer-legal{display:flex;gap:1.5rem}
+.footer-legal a:hover{color:rgba(255,255,255,.9)}
+/* LEGAL CONTENT */
+.legal-wrap{max-width:820px;margin:0 auto}
+.legal-section{padding:2.5rem 0;border-bottom:1px solid var(--border)}
+.legal-section:last-child{border-bottom:none}
+.legal-num{font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:.5rem}
+.legal-h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.03em;color:var(--navy);margin-bottom:1.2rem;line-height:1}
+.legal-p{font-size:.92rem;color:var(--muted);line-height:1.9;margin-bottom:.85rem}
+.legal-p:last-child{margin-bottom:0}
+.legal-p strong{color:var(--ink);font-weight:600}
+.legal-p a{color:var(--blue2);text-decoration:underline;text-underline-offset:3px}
+.legal-p a:hover{color:var(--navy)}
+.legal-table{width:100%;border-collapse:collapse;margin:.5rem 0 .85rem;font-size:.88rem}
+.legal-table th{text-align:left;font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);padding:.7rem 1rem;border-bottom:2px solid var(--border);background:var(--off)}
+.legal-table td{padding:.7rem 1rem;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top}
+.legal-table tr:last-child td{border-bottom:none}
+.legal-intro{background:var(--off);border-left:3px solid var(--red);border-radius:0 var(--r) var(--r) 0;padding:1.5rem 2rem;margin-bottom:3rem;font-size:.92rem;color:var(--muted);line-height:1.85}
+.legal-intro strong{color:var(--ink)}
+@media(max-width:700px){.container{padding:0 1.25rem}.section{padding:4rem 0}.page-hero{padding:6.5rem 0 2.5rem}.footer-grid{grid-template-columns:1fr;gap:2rem}.legal-h3{font-size:1.5rem}.legal-table{font-size:.8rem}.legal-table th,.legal-table td{padding:.5rem .75rem}}
+@media(max-width:480px){.page-h1{font-size:2rem!important}.page-hero{padding:5.5rem 0 2rem}}
+@media(max-width:1000px){.footer-grid{grid-template-columns:1fr;gap:2rem}}
+</style>
+</head>
+<body>
+
+<div class="top-red-bar"></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/logo (1)-Photoroom.png" alt="HAL'ORIGIN" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="nav-logo-fallback">HO</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">HAL'ORIGIN</span>
+        <span class="nav-logo-sub">Le Halal Validé</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/apropos">À notre propos</a></li>
+      <li><a href="/halal">L'Islam &amp; le Halal</a></li>
+      <li><a href="/cahier">Cahier des charges</a></li>
+      <li><a href="/partenaires">Partenaires</a></li>
+    </ul>
+    <a href="/contact" class="nav-cta">
+      Contact
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu navigation">
+  <ul class="mobile-menu-links">
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/apropos">À notre propos</a></li>
+    <li><a href="/halal">L'Islam &amp; le Halal</a></li>
+    <li><a href="/cahier">Cahier des charges</a></li>
+    <li><a href="/partenaires">Partenaires</a></li>
+  </ul>
+  <a href="/contact" class="mobile-menu-cta">Nous contacter →</a>
+  <div class="mobile-menu-decoration">
+    <span class="mobile-menu-brand">HAL'ORIGIN</span>
+    <span class="mobile-menu-tagline">Le Halal Validé</span>
+  </div>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-overlay"></div>
+  <div class="container">
+    <div class="page-hero-content rv">
+      <div class="page-eyebrow">Transparence &amp; conformité</div>
+      <h1 class="page-h1">Mentions<br><span style="color:var(--red)">Légales</span></h1>
+      <div class="page-rule"></div>
+      <p class="page-desc">Informations légales relatives à l'éditeur, à l'hébergement et aux conditions d'utilisation du site halorigin.com.</p>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="legal-wrap">
+
+      <div class="legal-intro rv">
+        Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la Confiance dans l'Économie Numérique (LCEN), les présentes mentions légales précisent l'identité des différents intervenants dans le cadre de la réalisation et du suivi du site <strong>halorigin.com</strong>. Dernière mise à jour : <strong>juin 2025</strong>.
+      </div>
+
+      <div class="legal-section rv">
+        <span class="legal-num">Article 1</span>
+        <h2 class="legal-h3">Éditeur du site</h2>
+        <p class="legal-p">Le site <strong>halorigin.com</strong> est édité par l'association <strong>Hal'Origin</strong>, organisme indépendant de certification halal.</p>
+        <table class="legal-table">
+          <tr><th>Dénomination</th><td>Hal'Origin</td></tr>
+          <tr><th>Forme juridique</th><td>Association loi 1901</td></tr>
+          <tr><th>Adresse</th><td>4 place Claudel, 78180 Montigny-le-Bretonneux, France</td></tr>
+          <tr><th>Téléphone</th><td><a href="tel:0660243658">06 60 24 36 58</a></td></tr>
+          <tr><th>E-mail</th><td><a href="mailto:halorigin.controle@gmail.com">halorigin.controle@gmail.com</a></td></tr>
+          <tr><th>Année de création</th><td>2020</td></tr>
+        </table>
+      </div>
+
+      <div class="legal-section rv">
+        <span class="legal-num">Article 2</span>
+        <h2 class="legal-h3">Directeur de la publication</h2>
+        <p class="legal-p">Le directeur de la publication est le représentant légal de l'association Hal'Origin.</p>
+        <p class="legal-p">Pour toute question relative au contenu éditorial du site, vous pouvez le contacter à l'adresse : <a href="mailto:halorigin.controle@gmail.com">halorigin.controle@gmail.com</a></p>
+      </div>
+
+      <div class="legal-section rv">
+        <span class="legal-num">Article 3</span>
+        <h2 class="legal-h3">Conception &amp; développement</h2>
+        <p class="legal-p">Le site <strong>halorigin.com</strong> a été conçu, édité et développé par :</p>
+        <table class="legal-table">
+          <tr><th>Réalisation</th><td><strong>Iyad Hadjour</strong></td></tr>
+          <tr><th>Agence</th><td><strong>The Follow Movement</strong></td></tr>
+        </table>
+      </div>
+
+      <div class="legal-section rv">
+        <span class="legal-num">Article 4</span>
+        <h2 class="legal-h3">Hébergement</h2>
+        <p class="legal-p">Le site <strong>halorigin.com</strong> est hébergé par :</p>
+        <table class="legal-table">
+          <tr><th>Société</th><td><strong>IONOS by 1&amp;1</strong></td></tr>
+          <tr><th>Adresse</th><td>7 place de la Gare, 57200 Sarreguemines, France</td></tr>
+          <tr><th>Site web</th><td><a href="https://www.ionos.fr" target="_blank" rel="noopener noreferrer">www.ionos.fr</a></td></tr>
+        </table>
+      </div>
+
+      <div class="legal-section rv">
+        <span class="legal-num">Article 5</span>
+        <h2 class="legal-h3">Propriété intellectuelle</h2>
+        <p class="legal-p">L'ensemble du contenu du site <strong>halorigin.com</strong> — textes, logos, images, graphismes, icônes, sons et tout autre élément — est la propriété exclusive de l'association Hal'Origin, ou fait l'objet d'une autorisation d'utilisation accordée à celle-ci.</p>
+        <p class="legal-p">Toute reproduction, représentation, modification, publication, adaptation ou exploitation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation préalable et écrite de Hal'Origin, sauf à des fins strictement personnelles et non commerciales.</p>
+        <p class="legal-p">La marque <strong>Hal'Origin</strong> et le logo associé sont des signes distinctifs protégés. Toute utilisation non autorisée constitue une contrefaçon passible de poursuites judiciaires.</p>
+      </div>
+
+      <div class="legal-section rv">
+        <span class="legal-num">Article 6</span>
+        <h2 class="legal-h3">Liens hypertextes</h2>
+        <p class="legal-p"><strong>Liens sortants :</strong> Le site peut contenir des liens vers des sites tiers. Hal'Origin ne peut être tenu responsable du contenu de ces sites, ni des dommages pouvant résulter de leur consultation.</p>
+        <p class="legal-p"><strong>Liens entrants :</strong> Tout site souhaitant établir un lien vers halorigin.com doit obtenir l'autorisation préalable de l'éditeur. La création d'un lien vers ce site ne constitue pas une approbation implicite de son contenu par Hal'Origin.</p>
+      </div>
+
+      <div class="legal-section rv">
+        <span class="legal-num">Article 7</span>
+        <h2 class="legal-h3">Limitation de responsabilité</h2>
+        <p class="legal-p">Hal'Origin s'efforce de fournir sur le site des informations aussi précises que possible. Toutefois, elle ne pourra être tenue responsable des omissions, des inexactitudes et des carences dans la mise à jour, qu'elles soient de son fait ou du fait des tiers partenaires qui lui fournissent ces informations.</p>
+        <p class="legal-p">Les informations présentes sur le site sont données à titre indicatif et sont susceptibles d'évoluer. Par ailleurs, les renseignements fournis sur le site ne sont pas exhaustifs. Ils sont donnés sous réserve de modifications ayant été apportées depuis leur mise en ligne.</p>
+        <p class="legal-p">Hal'Origin ne saurait être tenue responsable de dommages directs ou indirects résultant de l'accès au site ou de l'utilisation des informations y figurant.</p>
+      </div>
+
+      <div class="legal-section rv">
+        <span class="legal-num">Article 8</span>
+        <h2 class="legal-h3">Protection des données personnelles</h2>
+        <p class="legal-p">Hal'Origin s'engage à protéger la vie privée des utilisateurs du site conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés.</p>
+        <p class="legal-p">Les données collectées via le formulaire de contact sont utilisées exclusivement pour traiter vos demandes et ne sont jamais cédées à des tiers à des fins commerciales.</p>
+        <p class="legal-p">Pour en savoir plus sur la gestion de vos données personnelles, consultez notre <a href="/politique-de-confidentialite">Politique de confidentialité</a>.</p>
+      </div>
+
+      <div class="legal-section rv">
+        <span class="legal-num">Article 9</span>
+        <h2 class="legal-h3">Cookies</h2>
+        <p class="legal-p">Le site halorigin.com utilise des cookies techniques strictement nécessaires à son bon fonctionnement. Ces cookies ne collectent aucune donnée personnelle à des fins de traçage ou de publicité.</p>
+        <p class="legal-p">Vous pouvez configurer votre navigateur pour refuser l'ensemble des cookies. Toutefois, le refus de cookies techniques peut affecter certaines fonctionnalités du site.</p>
+      </div>
+
+      <div class="legal-section rv">
+        <span class="legal-num">Article 10</span>
+        <h2 class="legal-h3">Droit applicable et juridiction</h2>
+        <p class="legal-p">Les présentes mentions légales sont soumises au droit français. En cas de litige relatif à leur interprétation ou à leur exécution, les tribunaux français seront seuls compétents.</p>
+        <p class="legal-p">Pour toute question ou réclamation, veuillez contacter Hal'Origin à l'adresse : <a href="mailto:halorigin.controle@gmail.com">halorigin.controle@gmail.com</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div style="margin-bottom:1rem"><img src="/logo (1)-Photoroom.png" alt="HAL'ORIGIN" style="height:60px;width:auto"></div>
+        <p style="font-size:.83rem;color:rgba(255,255,255,.55);max-width:230px;line-height:1.75">Certification Halal rigoureuse depuis 2020.<br>Traçabilité totale, zéro compromis.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="/">Accueil</a>
+        <a href="/apropos">À notre propos</a>
+        <a href="/halal">L'Islam &amp; le Halal</a>
+        <a href="/cahier">Cahier des charges</a>
+        <a href="/partenaires">Partenaires</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:0660243658">06 60 24 36 58</a>
+        <a href="mailto:halorigin.controle@gmail.com">halorigin.controle@gmail.com</a>
+        <span>4 place Claudel<br>78180 Montigny-le-Bretonneux</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Hal'Origin — Tous droits réservés</span>
+      <div class="footer-legal">
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="/politique-de-confidentialite">Confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60));
+nav.classList.add('solid');
+const burger=document.getElementById('burger');
+const mobileMenu=document.getElementById('mobile-menu');
+burger.addEventListener('click',()=>{
+  const isOpen=mobileMenu.classList.contains('open');
+  mobileMenu.classList.toggle('open');
+  burger.classList.toggle('open');
+  burger.setAttribute('aria-expanded',String(!isOpen));
+  document.body.classList.toggle('menu-open');
+});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  mobileMenu.classList.remove('open');
+  burger.classList.remove('open');
+  burger.setAttribute('aria-expanded','false');
+  document.body.classList.remove('menu-open');
+}));
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&mobileMenu.classList.contains('open')){
+    mobileMenu.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    document.body.classList.remove('menu-open');
+  }
+});
+window.addEventListener('resize',()=>{
+  if(window.innerWidth>900){
+    mobileMenu.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    document.body.classList.remove('menu-open');
+  }
+});
+
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'))});
+const io=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*80);io.unobserve(e.target)}})},{threshold:.07});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

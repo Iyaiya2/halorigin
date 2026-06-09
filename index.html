@@ -1,0 +1,844 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self';">
+<title>Hal'Origin — Le Halal Validé — halorigin.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --navy:#152d62;--blue:#1a4da8;--blue2:#2060d8;--red:#3fca65;--green:#1a9042;
+  --white:#fff;--off:#f3faf5;--ink:#0a1628;--muted:#516878;--border:#cce0d4;
+  --r:8px;--r2:16px;--r3:24px;
+  --sh:0 2px 8px rgba(10,31,78,.08),0 8px 32px rgba(10,31,78,.07);
+  --sh2:0 16px 56px rgba(10,31,78,.18);
+  --nav-h:72px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+.logo-img{height:44px;width:auto;transition:height .3s}
+.nav.solid .logo-img{height:36px}
+
+/* CURSOR */
+
+
+
+/* ============================
+   TOP RED BAR
+   ============================ */
+.top-red-bar{position:fixed;top:0;left:0;right:0;height:2px;z-index:500;background:linear-gradient(90deg,transparent 0%,var(--red) 15%,#5cde7e 50%,var(--red) 85%,transparent 100%)}
+
+/* ============================
+   NAVBAR
+   ============================ */
+.nav{position:fixed;top:2px;left:0;right:0;z-index:400;height:var(--nav-h);display:flex;align-items:center;transition:background .35s ease,box-shadow .35s ease,backdrop-filter .35s ease}
+.nav.solid{background:rgba(12,26,68,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 0 rgba(255,255,255,.06),0 8px 32px rgba(0,0,0,.28)}
+.nav-inner{width:100%;max-width:1280px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;gap:0}
+.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;flex-shrink:0;margin-right:auto}
+.nav-logo-img{height:40px;width:auto;transition:height .3s ease}
+.nav.solid .nav-logo-img{height:34px}
+.nav-logo-fallback{display:none;align-items:center;justify-content:center;width:40px;height:40px;background:var(--red);border-radius:10px;font-family:'Bebas Neue',sans-serif;color:white;font-size:.95rem;letter-spacing:.05em}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1}
+.nav-logo-name{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;color:white;letter-spacing:.1em}
+.nav-logo-sub{font-family:'Montserrat',sans-serif;font-size:.38rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:.15rem}
+.nav-links{display:flex;align-items:center;list-style:none;gap:.15rem;margin-right:1.5rem}
+.nav-links li{position:relative}
+.nav-links a{display:block;font-family:'Montserrat',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.6);padding:.5rem .9rem;border-radius:6px;transition:color .18s,background .18s;white-space:nowrap;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:1.5px;background:var(--red);transition:left .22s ease,right .22s ease;border-radius:2px}
+.nav-links a:hover{color:white}
+.nav-links a:hover::after,.nav-links a.active::after{left:.9rem;right:.9rem}
+.nav-links a.active{color:white}
+.nav-cta{display:inline-flex;align-items:center;gap:.45rem;font-family:'Montserrat',sans-serif;font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.7rem;background:var(--red);color:white;border-radius:999px;border:none;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s;white-space:nowrap;flex-shrink:0}
+.nav-cta:hover{background:#1dab58;transform:translateY(-1px);box-shadow:0 6px 20px rgba(63,202,101,.45)}
+.nav-cta svg{width:12px;height:12px;flex-shrink:0;transition:transform .2s}
+.nav-cta:hover svg{transform:translateX(2px)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;margin-left:auto}
+.burger span{display:block;width:22px;height:1.5px;background:rgba(255,255,255,.75);border-radius:2px;transition:transform .3s ease,opacity .3s ease,width .3s ease;transform-origin:center}
+.burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);width:22px}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);width:22px}
+.mobile-menu{position:fixed;top:0;left:0;right:0;bottom:0;z-index:350;background:rgba(5,12,32,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;pointer-events:none;transition:opacity .3s ease;padding:2rem}
+@media(min-width:901px){.mobile-menu{display:none!important}.burger{display:none!important}body.menu-open{overflow:auto}}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu-links{display:flex;flex-direction:column;align-items:center;gap:.15rem;list-style:none;width:100%;max-width:320px;margin-bottom:2.5rem}
+.mobile-menu-links li{width:100%;opacity:0;transform:translateY(12px);transition:opacity .3s ease,transform .3s ease}
+.mobile-menu.open .mobile-menu-links li:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+.mobile-menu.open .mobile-menu-links li:nth-child(2){opacity:1;transform:none;transition-delay:.1s}
+.mobile-menu.open .mobile-menu-links li:nth-child(3){opacity:1;transform:none;transition-delay:.15s}
+.mobile-menu.open .mobile-menu-links li:nth-child(4){opacity:1;transform:none;transition-delay:.2s}
+.mobile-menu.open .mobile-menu-links li:nth-child(5){opacity:1;transform:none;transition-delay:.25s}
+.mobile-menu-links a{display:block;width:100%;text-align:center;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.80);padding:1rem;border-radius:var(--r);border:1px solid transparent;transition:color .18s,border-color .18s,background .18s}
+.mobile-menu-links a:hover,.mobile-menu-links a.active{color:white;background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
+.mobile-menu-cta{display:block;width:100%;max-width:280px;text-align:center;font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:.9rem 2rem;background:var(--red);color:white;border-radius:999px;border:none;cursor:pointer;opacity:0;transform:translateY(12px);transition:opacity .3s ease .3s,transform .3s ease .3s,background .2s}
+.mobile-menu.open .mobile-menu-cta{opacity:1;transform:none}
+.mobile-menu-cta:hover{background:#1dab58}
+.mobile-menu-decoration{position:absolute;bottom:3rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;transition:opacity .3s ease .35s}
+.mobile-menu.open .mobile-menu-decoration{opacity:1}
+.mobile-menu-brand{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.2em;color:rgba(255,255,255,.12)}
+.mobile-menu-tagline{font-family:'Montserrat',sans-serif;font-size:.5rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.1)}
+body.menu-open{overflow:hidden}
+@media(max-width:900px){.nav-links,.nav-cta{display:none}.burger{display:flex}}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.88rem 2rem;border-radius:var(--r);font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:.22s;white-space:nowrap}
+.btn-white{background:var(--white);color:var(--navy)}.btn-white:hover{background:#e6f0ff;transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.2)}
+.btn-ghost{background:transparent;color:white;border:1.5px solid rgba(255,255,255,.35)}.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.7)}
+.btn-red{background:var(--red);color:white;border-radius:999px}.btn-red:hover{background:#1dab58;transform:translateY(-2px);box-shadow:0 6px 24px rgba(63,202,101,.4)}
+.btn-navy{background:var(--navy);color:white}.btn-navy:hover{background:var(--blue);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--border)}.btn-outline:hover{background:var(--off);border-color:#a0c8a8}
+.btn-outline-white{background:transparent;color:white;border:1.5px solid rgba(255,255,255,.4)}.btn-outline-white:hover{background:rgba(255,255,255,.1);border-color:white}
+
+/* LAYOUT */
+.section{padding:7.5rem 0}
+.bg-off{background:var(--off)}
+.bg-navy{background:var(--navy)}
+.bg-dark{background:#050e20}
+.container{max-width:1180px;margin:0 auto;padding:0 3rem}
+.eyebrow{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:.75rem}
+.eyebrow-blue{color:var(--blue2)}
+.h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4.5vw,4.2rem);font-weight:400;line-height:1;letter-spacing:.02em;color:var(--navy);margin-bottom:1.1rem}
+.h2 em{font-style:italic;font-family:'Montserrat',sans-serif;font-size:65%;font-weight:300;letter-spacing:.05em;color:var(--blue)}
+.h2-white{color:white}
+.body-t{font-size:.93rem;color:var(--muted);line-height:1.85}
+.body-t p{margin-bottom:1rem}
+.body-t strong{color:var(--ink);font-weight:600}
+.tc{text-align:center}
+.tc .body-t{max-width:560px;margin:0 auto}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:5.5rem;align-items:center}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.rv.in{opacity:1;transform:none}
+
+/* PAGE HERO BANNER */
+.page-hero{padding:10rem 0 5rem;position:relative;overflow:hidden;background:linear-gradient(160deg,#2a62cc 0%,var(--navy) 55%,#0d2255 100%)}
+.page-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.15;animation:heroZoom 20s ease-in-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,38,.28) 0%,rgba(10,28,65,.10) 100%)}
+.page-hero-content{position:relative;z-index:2}
+.page-eyebrow{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:rgba(63,202,101,.8);display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
+.page-eyebrow::before{content:'';width:24px;height:2px;background:var(--red);flex-shrink:0}
+.page-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,6.5rem);color:white;line-height:.92;letter-spacing:.02em;margin-bottom:1rem}
+.page-h1 .red{color:var(--red)}
+.page-desc{font-size:1rem;color:rgba(255,255,255,.85);max-width:520px;line-height:1.85}
+.page-rule{width:60px;height:3px;background:var(--red);margin:1.5rem 0}
+
+/* MARQUEE */
+.red-band{background:var(--red);padding:1rem 0;overflow:hidden}
+.marquee-track{display:flex;animation:marquee 20s linear infinite;white-space:nowrap}
+.marquee-track span{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.12em;color:white;padding:0 2rem}
+.marquee-track span.sep{color:rgba(255,255,255,.6)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* CARDS */
+.card{background:white;border:1px solid var(--border);border-radius:var(--r2);padding:2rem;box-shadow:var(--sh);transition:.25s}
+.card:hover{border-color:#a0bcf0;box-shadow:var(--sh2);transform:translateY(-4px)}
+.card-ico{width:48px;height:48px;border-radius:12px;background:var(--off);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.1rem}
+.card h3{font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:.5rem}
+.card p{font-size:.84rem;color:var(--muted);line-height:1.72}
+
+/* CHECKLIST */
+.checklist{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin:1.5rem 0}
+.checklist li{display:flex;align-items:flex-start;gap:.75rem;font-size:.9rem;color:var(--muted);line-height:1.55}
+.checklist li::before{content:'';width:20px;height:20px;border-radius:50%;flex-shrink:0;margin-top:.05rem;background:#f0fdf4 url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none'%3E%3Cpath d='M1 4l3 3 5-6' stroke='%2316a34a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center;border:1px solid #bbf7d0}
+
+/* ACCORDION */
+.acc-btn{width:100%;padding:1.15rem 1.75rem;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-family:'Montserrat',sans-serif;font-size:.88rem;font-weight:700;color:var(--navy);text-align:left;transition:.2s}
+.acc-btn:hover{background:var(--off)}
+.acc-ico{width:26px;height:26px;flex-shrink:0;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--blue2);font-size:1.1rem;line-height:1;transition:.3s}
+.acc-btn.open .acc-ico{transform:rotate(45deg);background:var(--navy);color:white;border-color:var(--navy)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .38s ease}
+.acc-body.open{max-height:800px}
+.acc-inner{padding:.2rem 1.75rem 1.75rem;font-size:.86rem;color:var(--muted);line-height:1.85}
+.acc-inner ul{padding-left:1.1rem;margin-top:.5rem;display:flex;flex-direction:column;gap:.45rem}
+
+/* STATS BAND */
+.stats-band{background:linear-gradient(135deg,var(--navy) 0%,#1a4898 100%);position:relative;overflow:hidden}
+.stats-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 100% at 50%,rgba(32,96,216,.15),transparent);pointer-events:none}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);position:relative;z-index:1}
+.stat{padding:3rem 1.5rem;text-align:center;border-right:1px solid rgba(255,255,255,.07)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:white;line-height:1;margin-bottom:.4rem}
+.stat-accent{color:var(--red)}
+.stat-l{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+
+/* CTA BLOCK */
+.cta-box{background:linear-gradient(135deg,var(--navy) 0%,#0d2255 100%);border-radius:var(--r3);padding:5rem 4rem;text-align:center;position:relative;overflow:hidden;box-shadow:var(--sh2)}
+.cta-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% -10%,rgba(32,96,216,.25),transparent);pointer-events:none}
+.cta-box::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--red),transparent);pointer-events:none}
+.cta-box h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4vw,4rem);color:white;margin-bottom:.9rem;position:relative}
+.cta-box p{color:rgba(255,255,255,.82);max-width:460px;margin:0 auto 2.5rem;font-size:.96rem;position:relative;line-height:1.75}
+
+/* FORM */
+.form-wrap{background:white;border:1px solid var(--border);border-radius:var(--r2);padding:2.5rem;box-shadow:var(--sh2)}
+.form-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--navy);margin-bottom:.4rem}
+.form-sub{font-size:.83rem;color:var(--muted);margin-bottom:2rem}
+.form-grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-field{margin-bottom:1.15rem}
+.form-label{display:block;font-family:'Montserrat',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.form-input,.form-select,.form-textarea{width:100%;background:var(--off);border:1.5px solid var(--border);border-radius:var(--r);padding:.82rem 1.1rem;font-family:'Inter',sans-serif;font-size:.88rem;color:var(--ink);outline:none;transition:.2s}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--blue2);box-shadow:0 0 0 3px rgba(32,96,216,.1)}
+.form-textarea{resize:vertical;min-height:115px}
+
+/* CONTACT ITEMS */
+.c-row{display:flex;gap:.9rem;margin-bottom:1.5rem;align-items:flex-start}
+.c-ico{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.c-label{font-family:'Montserrat',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:.2rem}
+.c-val{font-size:.9rem;color:rgba(255,255,255,.8)}
+.c-val a{color:#7eb4ff}
+.hours-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r2);padding:1.75rem;margin-top:2rem}
+.hours-label{font-family:'Montserrat',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:1rem}
+.hours-row{display:flex;justify-content:space-between;font-size:.84rem;padding:.45rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.hours-row:last-child{border-bottom:none}
+.hours-day{color:rgba(255,255,255,.72)}
+.hours-time{color:rgba(255,255,255,.85);font-weight:600;font-family:'Montserrat',sans-serif;font-size:.82rem}
+
+/* FOOTER */
+.footer{background:#112560;padding:4.5rem 0 2.5rem}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1.2fr;gap:3.5rem;margin-bottom:3.5rem}
+.footer-col h4{font-family:'Montserrat',sans-serif;font-size:.57rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:1.1rem}
+.footer-col a,.footer-col span{display:block;font-size:.83rem;color:rgba(255,255,255,.72);margin-bottom:.5rem;transition:.2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.75rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy,.footer-legal a{font-size:.73rem;color:rgba(255,255,255,.55)}
+.footer-legal{display:flex;gap:1.5rem}
+.footer-legal a:hover{color:rgba(255,255,255,.9)}
+
+/* PARTNER CARDS */
+.partner-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.partner-card{background:white;border:1px solid var(--border);border-radius:var(--r2);padding:2.5rem 2rem;text-align:center;box-shadow:var(--sh);transition:.3s;position:relative;overflow:hidden}
+.partner-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--blue2));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.partner-card:hover::before{transform:scaleX(1)}
+.partner-card:hover{border-color:#a0c8a8;box-shadow:var(--sh2);transform:translateY(-4px)}
+.pc-logo{width:90px;height:90px;border-radius:50%;background:var(--off);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;overflow:hidden;transition:.3s}
+.pc-logo img{width:74px;height:74px;object-fit:contain}
+.partner-card:hover .pc-logo{border-color:#a0c8a8;box-shadow:0 4px 20px rgba(10,31,78,.12)}
+.pc-name{font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:.25rem}
+.pc-type{font-size:.62rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#8fa0b8;margin-bottom:1rem}
+.pc-badge{display:inline-flex;padding:.22rem .75rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:999px;font-family:'Montserrat',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+
+/* RESPONSIVE */
+@media(max-width:1000px){.two-col,.three-col{grid-template-columns:1fr;gap:2.5rem}.stats-row{grid-template-columns:1fr 1fr}.partner-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr;gap:2rem}.logo-img{height:40px}.process-steps,.pourqui-grid,.valeurs-grid{grid-template-columns:1fr 1fr}.histoire-img-wrap{min-height:300px}}
+@media(max-width:700px){.container{padding:0 1.25rem}.section{padding:3.5rem 0}.cta-box{padding:2.5rem 1.5rem;border-radius:var(--r2)}.form-grid2{grid-template-columns:1fr}.partner-grid{grid-template-columns:1fr}.stats-row{grid-template-columns:1fr 1fr}.process-steps,.pourqui-grid,.valeurs-grid{grid-template-columns:1fr}.histoire-logo-big{width:160px}.histoire-badge{display:none}.mission-card,.pq-card{padding:1.75rem 1.25rem}.cta-box h2{font-size:2.2rem}.footer-copy{font-size:.68rem}}
+
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center}
+.hero-slides{position:absolute;inset:0;z-index:0}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s ease;overflow:hidden}.hero-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-slide.active{opacity:1;animation:slideZoom 8s ease-in-out forwards}
+@keyframes slideZoom{from{transform:scale(1)}to{transform:scale(1.08)}}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(6,14,38,.42) 0%,rgba(10,28,65,.28) 45%,rgba(6,14,38,.45) 100%)}
+.hero-vignette{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 60%,rgba(6,14,38,.18) 100%)}
+.hero-grain{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E")}
+.hero-glow{position:absolute;top:28%;left:50%;transform:translateX(-50%);width:550px;height:550px;border-radius:50%;background:radial-gradient(circle,rgba(63,202,101,.15) 0%,transparent 65%);z-index:3;animation:glowP 6s ease-in-out infinite}
+@keyframes glowP{0%,100%{opacity:.5;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.1)}}
+.hero-bot-fade{position:absolute;bottom:0;left:0;right:0;height:160px;z-index:4;background:linear-gradient(to top,var(--white),transparent);pointer-events:none}
+.hero-inner{position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;padding:9rem 2rem 8rem;max-width:900px;width:100%}
+.hero-logo{margin-bottom:2rem;animation:logoDrop .9s cubic-bezier(.22,1,.36,1) both}
+.hero-logo svg{width:155px;height:auto;filter:drop-shadow(0 20px 60px rgba(0,0,0,.8)) drop-shadow(0 4px 16px rgba(0,0,0,.5));animation:logoBob 6s ease-in-out infinite}
+@keyframes logoDrop{from{opacity:0;transform:translateY(-28px) scale(.88)}to{opacity:1;transform:none}}
+@keyframes logoBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(74,222,128,.5)}50%{opacity:.7;box-shadow:0 0 0 8px rgba(74,222,128,0)}}
+@keyframes ruleGrow{to{width:150px}}
+.hero-pill{display:inline-flex;align-items:center;gap:.55rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:.35rem 1.1rem .35rem .6rem;font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:1.6rem;animation:fadeUp .7s .2s ease both}
+.pdot{width:8px;height:8px;border-radius:50%;background:#4ade80;flex-shrink:0;animation:blink 2s ease infinite}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(5.5rem,13vw,12rem);font-weight:400;line-height:.9;letter-spacing:.02em;color:white;animation:fadeUp .8s .28s cubic-bezier(.22,1,.36,1) both}
+.hero h1 .ap{color:var(--red)}
+.hero-tagline{font-family:'Montserrat',sans-serif;font-size:clamp(.88rem,1.8vw,1.15rem);font-weight:300;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.45);margin:.5rem 0 1rem;animation:fadeUp .7s .36s ease both}
+.hero-tagline strong{color:rgba(255,255,255,.8);font-weight:700}
+.hero-rule{width:0;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);margin:.3rem auto 1.3rem;animation:ruleGrow .9s .44s ease both}
+.hero-desc{font-size:clamp(.87rem,1.3vw,.97rem);color:rgba(255,255,255,.52);line-height:1.85;max-width:480px;margin:0 auto 2.2rem;animation:fadeUp .7s .5s ease both}
+.hero-desc strong{color:rgba(255,255,255,.88);font-weight:600}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:16rem;margin-bottom:3.5rem;animation:fadeUp .7s .56s ease both}
+.hero-stats{display:inline-flex;border:1px solid rgba(255,255,255,.1);border-radius:var(--r2);overflow:hidden;background:rgba(6,14,38,.6);backdrop-filter:blur(24px);animation:fadeUp .7s .62s ease both}
+.hs{padding:1.1rem 2rem;border-right:1px solid rgba(255,255,255,.07);text-align:center}
+.hs:last-child{border-right:none}
+.hs-n{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:white;line-height:1;letter-spacing:.02em}
+.hs-l{font-size:.52rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.68);margin-top:.15rem}
+.slide-dots{position:absolute;bottom:4.5rem;left:50%;transform:translateX(-50%);display:flex;gap:.6rem;z-index:5}
+.slide-dot{width:7px;height:7px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);transition:.3s;cursor:pointer}
+.slide-dot.active{background:var(--red);border-color:var(--red);transform:scale(1.2)}
+.animals-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3.5rem}
+.animal-card{border-radius:var(--r2);overflow:hidden;position:relative;aspect-ratio:2/3;box-shadow:var(--sh2);transition:.35s}
+.animal-card:hover{transform:translateY(-6px);box-shadow:0 24px 64px rgba(10,31,78,.22)}
+.a-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .55s}
+.animal-card:hover .a-img{transform:scale(1.05)}
+.a-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,31,78,.9) 0%,rgba(10,31,78,.2) 50%,transparent 100%)}
+.a-cow{background-image:url('bovins.jpg')}
+.a-sheep{background-image:url('ovins.jpg')}
+.a-chicken{background-image:url('volailles.jpg')}
+.a-beef{background-image:url('viande.jpg')}
+.a-info{position:absolute;bottom:0;left:0;right:0;padding:1.75rem 1.5rem;z-index:1}
+.a-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:.25rem .7rem;font-family:'Montserrat',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:white;margin-bottom:.65rem}
+.bdot{width:5px;height:5px;border-radius:50%;background:#4ade80}
+.a-title{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:white;letter-spacing:.04em;margin-bottom:.25rem}
+.a-sub{font-size:.75rem;color:rgba(255,255,255,.6);line-height:1.5}
+@media(max-width:700px){
+  /* Hero : centrer + coller le contenu vers le centre-haut */
+  .hero{align-items:center;justify-content:center}
+  .hero-inner{
+    padding:5rem 1.5rem 3rem;
+    display:flex;flex-direction:column;align-items:center;
+    width:100%;
+  }
+
+  /* Pill — compact, bien visible */
+  .hero-pill{
+    font-size:.47rem;padding:.28rem .9rem;
+    letter-spacing:.13em;
+    margin-bottom:.85rem;
+  }
+
+  /* Titre — GRAND, impactant */
+  .hero h1{
+    font-size:clamp(3.6rem,15vw,5.5rem);
+    letter-spacing:.03em;line-height:.88;
+    margin-bottom:.3rem;
+  }
+
+  /* Tagline */
+  .hero-tagline{
+    font-size:.68rem;letter-spacing:.35em;
+    margin:.15rem 0 0;
+    color:rgba(255,255,255,.55);
+  }
+
+  /* Ligne rouge */
+  .hero-rule{
+    width:32px;height:2px;
+    margin:.7rem auto .9rem;
+  }
+
+  /* Description — 2 lignes max, sobre */
+  .hero-desc{
+    font-size:.78rem;line-height:1.68;
+    max-width:268px;
+    color:rgba(255,255,255,.58);
+    margin-bottom:1.5rem;
+    text-align:center;
+  }
+
+  /* Boutons — empilés, pleine largeur */
+  /* Primaire : rouge (CTA fort) */
+  /* Secondaire : outline blanc */
+  .hero-btns{
+    flex-direction:column;align-items:stretch;
+    width:100%;max-width:292px;
+    gap:.55rem;margin-top:.75rem!important;margin-bottom:1.5rem;
+  }
+  .hero-btns .btn{
+    width:100%;justify-content:center;
+    padding:1rem 1.25rem;
+    font-size:.59rem;letter-spacing:.14em;
+    border-radius:var(--r);
+  }
+  .hero-btns .btn-white{
+    background:var(--red);color:white;
+    box-shadow:0 6px 24px rgba(63,202,101,.4);
+    border:none;
+  }
+  .hero-btns .btn-ghost{
+    background:rgba(255,255,255,.07);
+    border:1.5px solid rgba(255,255,255,.3);
+    color:white;
+  }
+
+  /* Stats — 3 colonnes parfaites, full width */
+  .hero-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    width:100%;max-width:310px;
+    border-radius:var(--r);overflow:hidden;
+    background:rgba(6,14,38,.7);
+    border:1px solid rgba(255,255,255,.1);
+  }
+  .hs{
+    flex:none;padding:.75rem .3rem;min-width:0;
+    border-right:1px solid rgba(255,255,255,.07);
+  }
+  .hs:last-child{border-right:none}
+  .hs-n{font-size:1.25rem;letter-spacing:.01em}
+  .hs-l{font-size:.41rem;letter-spacing:.1em}
+
+  .animals-grid{grid-template-columns:1fr 1fr}
+  .hero-logo img{width:100px}
+}
+
+/* HERO LOGO IMG */
+.hero-logo img{width:160px;height:auto;filter:drop-shadow(0 20px 60px rgba(0,0,0,.8)) drop-shadow(0 4px 16px rgba(0,0,0,.5));animation:logoBob 6s ease-in-out infinite}
+.hero-logo-watermark{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;pointer-events:none;overflow:hidden}
+.hero-logo-watermark img{width:min(130vw,1300px);height:auto;opacity:.35;filter:drop-shadow(0 0 120px rgba(255,255,255,.5));animation:wmPulse 9s ease-in-out infinite;transform-origin:center}
+@keyframes wmPulse{0%,100%{opacity:.28;transform:scale(1)}50%{opacity:.42;transform:scale(1.04)}}
+
+/* HISTOIRE SECTION */
+.histoire-img-wrap{position:relative;display:flex;justify-content:center;align-items:center;background:var(--off);border:1px solid var(--border);border-radius:var(--r3);padding:3rem 2rem;box-shadow:var(--sh2);min-height:360px}
+.histoire-logo-big{width:240px;height:auto;filter:drop-shadow(0 20px 60px rgba(10,31,78,.15))}
+.histoire-badge{position:absolute;background:white;border:1px solid var(--border);border-radius:var(--r2);padding:.75rem 1.25rem;box-shadow:var(--sh);display:flex;flex-direction:column;gap:.1rem}
+.histoire-badge-tl{top:1.5rem;left:1.5rem}
+.histoire-badge-br{bottom:1.5rem;right:1.5rem}
+.histoire-badge span{font-size:.55rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.histoire-badge strong{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--navy)}
+
+/* MISSION CARDS */
+.mission-card{background:white;border:1px solid var(--border);border-radius:var(--r2);padding:2.5rem 2rem;box-shadow:var(--sh);transition:.25s;text-align:center}
+.mission-card:hover{border-color:#a0bcf0;box-shadow:var(--sh2);transform:translateY(-4px)}
+.mc-ico{font-size:2.5rem;margin-bottom:1.25rem;display:block}
+.mission-card h3{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:.65rem}
+.mission-card p{font-size:.86rem;color:var(--muted);line-height:1.75}
+
+/* PROCESS STEPS */
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem}
+.ps-item{text-align:center}
+.ps-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;color:var(--border);line-height:1;margin-bottom:.75rem;transition:.3s}
+.ps-item:hover .ps-num{color:var(--red)}
+.ps-line{width:60%;height:2px;background:linear-gradient(90deg,var(--red),var(--blue2));margin:0 auto .85rem;border-radius:2px}
+.ps-item h4{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:800;color:var(--navy);margin-bottom:.5rem}
+.ps-item p{font-size:.82rem;color:var(--muted);line-height:1.72}
+
+/* POUR QUI */
+.pourqui-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.pq-card{background:white;border:1px solid var(--border);border-radius:var(--r2);padding:2rem 1.75rem;text-align:center;box-shadow:var(--sh);transition:.25s}
+.pq-card:hover{border-color:#a0bcf0;box-shadow:var(--sh2);transform:translateY(-4px)}
+.pq-ico{font-size:2.2rem;margin-bottom:1rem;display:block}
+.pq-card h4{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:800;color:var(--navy);margin-bottom:.5rem}
+.pq-card p{font-size:.82rem;color:var(--muted);line-height:1.72}
+
+/* VALEURS */
+.valeurs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem}
+.valeur-item{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem}
+.vi-ico{width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.vi-title{font-family:'Montserrat',sans-serif;font-size:.88rem;font-weight:800;color:white;margin-bottom:.2rem}
+.vi-text{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.72}
+
+@media(max-width:480px){.hero h1{font-size:2.8rem}.hero-pill{font-size:.52rem}.hs-n{font-size:1.1rem}}
+
+/* ============================
+   OVERRIDES RESPONSIVE TARDIFS
+   (classes définies après le bloc responsive principal)
+   ============================ */
+@media(max-width:1200px){
+  .process-steps,.pourqui-grid{grid-template-columns:repeat(2,1fr)}
+  .valeurs-grid{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+  .animals-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .process-steps,.pourqui-grid{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+  .valeurs-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem}
+  .animals-grid{grid-template-columns:repeat(2,1fr)}
+  .histoire-img-wrap{min-height:260px;padding:2rem 1.5rem}
+  .histoire-logo-big{width:180px}
+  .histoire-badge{padding:.5rem .85rem}
+  .section{padding:4rem 0}
+  .container{padding:0 1.5rem}
+}
+@media(max-width:700px){
+  .process-steps,.pourqui-grid,.valeurs-grid{grid-template-columns:1fr;gap:1.25rem}
+  .animals-grid{grid-template-columns:1fr 1fr;gap:.85rem}
+  .histoire-badge{display:none}
+  .histoire-logo-big{width:140px}
+  .mission-card{padding:1.75rem 1.25rem}
+  .pq-card{padding:1.5rem 1.25rem}
+  .section{padding:3rem 0}
+  .container{padding:0 1.1rem}
+  .cta-box{padding:2.5rem 1.25rem;border-radius:var(--r2)}
+  .cta-box h2{font-size:2rem}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .stat{padding:2rem 1rem}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  .footer-copy{font-size:.68rem}
+  .page-h1{font-size:2.4rem!important}
+  .page-desc{font-size:.85rem}
+  .page-hero{padding:6.5rem 0 2.5rem}
+}
+@media(max-width:480px){
+  .process-steps,.pourqui-grid{grid-template-columns:1fr}
+  .animals-grid{grid-template-columns:1fr 1fr}
+  .hero-inner{padding:5rem 1.25rem 2rem}
+  .hero-btns{max-width:280px;margin-top:.75rem!important}
+  .hs-n{font-size:1.05rem}
+  .hs-l{font-size:.39rem;letter-spacing:.08em}
+  .hero-desc{font-size:.76rem;max-width:256px}
+}
+@media(max-width:380px){
+  .hero-btns{max-width:100%;margin-top:.75rem!important}
+  .hero h1{font-size:3rem}
+  .hs-n{font-size:.95rem}
+  .hero-desc{font-size:.74rem}
+}
+
+</style>
+</head>
+<body>
+<div class="cursor-ring" id="cr"></div>
+<div class="top-red-bar"></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="logo (1)-Photoroom.png" alt="HAL'ORIGIN" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="nav-logo-fallback">HO</div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">HAL'ORIGIN</span>
+        <span class="nav-logo-sub">Le Halal Validé</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/" class="active">Accueil</a></li>
+      <li><a href="/apropos">À notre propos</a></li>
+      <li><a href="/halal">L'Islam &amp; le Halal</a></li>
+      <li><a href="/cahier">Cahier des charges</a></li>
+      <li><a href="/partenaires">Partenaires</a></li>
+    </ul>
+    <a href="/contact" class="nav-cta">
+      Contact
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu navigation">
+  <ul class="mobile-menu-links">
+    <li><a href="/" class="active">Accueil</a></li>
+    <li><a href="/apropos">À notre propos</a></li>
+    <li><a href="/halal">L'Islam &amp; le Halal</a></li>
+    <li><a href="/cahier">Cahier des charges</a></li>
+    <li><a href="/partenaires">Partenaires</a></li>
+  </ul>
+  <a href="/contact" class="mobile-menu-cta">Nous contacter →</a>
+  <div class="mobile-menu-decoration">
+    <span class="mobile-menu-brand">HAL'ORIGIN</span>
+    <span class="mobile-menu-tagline">Le Halal Validé</span>
+  </div>
+</div>
+
+<section class="hero" id="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active" id="s0"><img src="R.jpg" alt=""></div>
+    <div class="hero-slide" id="s1"><img src="E.jpg" alt=""></div>
+    <div class="hero-slide" id="s2"><img src="t.jpg" alt=""></div>
+  </div>
+  <div class="hero-overlay"></div><div class="hero-vignette"></div><div class="hero-grain"></div><div class="hero-glow"></div><div class="hero-bot-fade"></div>
+  <div class="hero-logo-watermark"><img src="logo (1)-Photoroom.png" alt=""></div>
+  <div class="slide-dots">
+    <div class="slide-dot active" onclick="gS(0)"></div>
+    <div class="slide-dot" onclick="gS(1)"></div>
+    <div class="slide-dot" onclick="gS(2)"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-pill"><span class="pdot"></span>Certification Officielle — 100% Viande Tracée</div>
+
+
+
+
+
+
+
+
+    
+    <div class="hero-tagline"><strong>Le Halal</strong> Validé</div>
+    <div class="hero-rule"></div>
+    <p class="hero-desc">Un organisme de certification halal rigoureux, transparent et engagé. Pour une confiance totale du producteur à l'assiette.</p>
+    <div class="hero-btns">
+      <a href="/contact#cf" class="btn btn-white">Demander une certification →</a>
+      <a href="/cahier" class="btn btn-ghost">Découvrir le processus</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-n">100%</div><div class="hs-l">Traçabilité</div></div>
+      <div class="hs"><div class="hs-n">+200</div><div class="hs-l">Produits certifiés</div></div>
+      <div class="hs"><div class="hs-n">365j</div><div class="hs-l">Contrôles/an</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTOIRE -->
+<section class="section" id="histoire">
+  <div class="container">
+    <div class="two-col">
+      <div class="rv">
+        <span class="eyebrow">Notre Histoire</span>
+        <h2 class="h2">Né d'une exigence,<br><em>bâti sur la confiance.</em></h2>
+        <div class="body-t">
+          <p>Hal'Origin est né d'un constat simple : le marché du halal manquait d'un organisme de certification réellement rigoureux, transparent, et ancré dans les valeurs islamiques authentiques.</p>
+          <p>Fondé par des professionnels du secteur.</p>
+          <p>Depuis notre création, nous certifions avec une seule boussole : <strong>la vérité, à chaque étape de la chaîne alimentaire.</strong></p>
+        </div>
+        <ul class="checklist">
+          <li>Fondé par des professionnels engagés du secteur halal</li>
+          <li>Référencé sur les textes islamiques authentiques</li>
+          <li>Indépendant de tout lobby industriel</li>
+          <li>Transparent à 100% sur nos méthodes de contrôle</li>
+          <li>Présence permanente en abattoir — zéro tolérance</li>
+        </ul>
+      </div>
+      <div class="rv">
+        <div class="histoire-img-wrap">
+          <img src="logo (1)-Photoroom.png" alt="Hal'Origin" class="histoire-logo-big">
+          <div class="histoire-badge histoire-badge-tl"><span>Engagement</span><strong>Halal Authentique</strong></div>
+          <div class="histoire-badge histoire-badge-br"><span>Certifié depuis</span><strong>2020+</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="section bg-off" id="mission">
+  <div class="container">
+    <div class="tc rv">
+      <span class="eyebrow">Notre Mission</span>
+      <h2 class="h2">Trois piliers,<br><em>un seul engagement.</em></h2>
+      <div class="body-t"><p>Hal'Origin s'engage sur trois axes fondamentaux pour garantir un halal sans compromis, du producteur jusqu'à votre assiette.</p></div>
+    </div>
+    <div class="three-col" style="margin-top:3.5rem">
+      <div class="mission-card rv">
+        <span class="mc-ico">🕌</span>
+        <h3>Conformité Islamique</h3>
+        <p>Chaque certification repose sur les textes du Coran et de la Sunna. Basmallah prononcée par un musulman, abattage manuel, zéro étourdissement.</p>
+      </div>
+      <div class="mission-card rv">
+        <span class="mc-ico">🔍</span>
+        <h3>Contrôle Rigoureux</h3>
+        <p>Nos inspecteurs sont présents en permanence dans les abattoirs. Contrôles inopinés 365 jours par an, estampille officielle sur chaque carcasse.</p>
+      </div>
+      <div class="mission-card rv">
+        <span class="mc-ico">📋</span>
+        <h3>Traçabilité Totale</h3>
+        <p>Du producteur à l'assiette, chaque produit est tracé.— Viande Séparée Mécaniquement — garanti par contrat et contrôlé en laboratoire.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="section" id="processus">
+  <div class="container">
+    <div class="tc rv">
+      <span class="eyebrow">Notre Processus</span>
+      <h2 class="h2">Comment obtenir<br><em>la certification ?</em></h2>
+      <div class="body-t"><p>Un processus clair, rigoureux et transparent. Voici les 4 étapes pour rejoindre le réseau Hal'Origin.</p></div>
+    </div>
+    <div class="process-steps" style="margin-top:3.5rem">
+      <div class="ps-item rv">
+        <div class="ps-num">01</div>
+        <div class="ps-line"></div>
+        <h4>Demande</h4>
+        <p>Remplissez notre formulaire de contact. Notre équipe vous répond sous 48h pour étudier votre dossier et vous présenter nos conditions.</p>
+      </div>
+      <div class="ps-item rv">
+        <div class="ps-num">02</div>
+        <div class="ps-line"></div>
+        <h4>Audit Initial</h4>
+        <p>Un inspecteur Hal'Origin visite vos installations. Nous évaluons votre chaîne de production selon notre cahier des charges strict.</p>
+      </div>
+      <div class="ps-item rv">
+        <div class="ps-num">03</div>
+        <div class="ps-line"></div>
+        <h4>Certification</h4>
+        <p>Après validation complète, vous obtenez le label Hal'Origin. Votre établissement est référencé dans notre annuaire officiel des certifiés.</p>
+      </div>
+      <div class="ps-item rv">
+        <div class="ps-num">04</div>
+        <div class="ps-line"></div>
+        <h4>Contrôle Continu</h4>
+        <p>Des contrôles inopinés réguliers maintiennent le niveau d'exigence. Votre certification est renouvelée annuellement après audit complet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALEURS -->
+<section class="section bg-navy" id="valeurs">
+  <div class="container">
+    <div class="tc rv">
+      <span class="eyebrow" style="color:rgba(63,202,101,.8)">Nos Valeurs</span>
+      <h2 class="h2 h2-white">Ce qui nous anime,<br><em style="color:rgba(255,255,255,.72)">chaque jour.</em></h2>
+    </div>
+    <div class="valeurs-grid">
+      <div class="valeur-item rv">
+        <div class="vi-ico">⚖️</div>
+        <div><div class="vi-title">Intégrité</div><p class="vi-text">Nos décisions ne sont jamais influencées par des intérêts commerciaux. L'authenticité halal est notre seule priorité.</p></div>
+      </div>
+      <div class="valeur-item rv">
+        <div class="vi-ico">🔎</div>
+        <div><div class="vi-title">Transparence</div><p class="vi-text">Notre cahier des charges est public. Chaque contrôle, chaque refus de certification est documenté et accessible.</p></div>
+      </div>
+      <div class="valeur-item rv">
+        <div class="vi-ico">🤝</div>
+        <div><div class="vi-title">Confiance</div><p class="vi-text">Les consommateurs méritent une certitude absolue. Nous travaillons pour que le label Hal'Origin soit synonyme de garantie réelle.</p></div>
+      </div>
+      <div class="valeur-item rv">
+        <div class="vi-ico">📖</div>
+        <div><div class="vi-title">Connaissance</div><p class="vi-text">Nos inspecteurs sont formés à la fois aux normes islamiques et aux techniques modernes de contrôle alimentaire.</p></div>
+      </div>
+      <div class="valeur-item rv">
+        <div class="vi-ico">🛡️</div>
+        <div><div class="vi-title">Indépendance</div><p class="vi-text">Hal'Origin n'est affilié à aucun groupe industriel. Notre indépendance garantit l'impartialité de chaque certification.</p></div>
+      </div>
+      <div class="valeur-item rv">
+        <div class="vi-ico">🌱</div>
+        <div><div class="vi-title">Engagement</div><p class="vi-text">Nous croyons qu'un halal de qualité doit aussi respecter le bien-être animal et les conditions d'élevage éthiques.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section class="section" id="pour-qui">
+  <div class="container">
+    <div class="tc rv">
+      <span class="eyebrow">Pour qui ?</span>
+      <h2 class="h2">Hal'Origin s'adresse<br><em>à toute la filière.</em></h2>
+      <div class="body-t"><p>Que vous soyez producteur, abatteur, transformateur ou distributeur, Hal'Origin certifie chaque maillon de la chaîne halal.</p></div>
+    </div>
+    <div class="pourqui-grid" style="margin-top:3.5rem">
+      <div class="pq-card rv">
+        <span class="pq-ico">🥩</span>
+        <h4>Boucheries</h4>
+        <p>Affichez fièrement le label Hal'Origin. Vos clients ont la garantie d'un halal authentique, contrôlé et certifié.</p>
+      </div>
+      <div class="pq-card rv">
+        <span class="pq-ico">🍽️</span>
+        <h4>Restaurants</h4>
+        <p>Certifiez votre approvisionnement. Fidélisez une clientèle exigeante avec un label reconnu et vérifiable.</p>
+      </div>
+      <div class="pq-card rv">
+        <span class="pq-ico">🏭</span>
+        <h4>Abattoirs & Ateliers</h4>
+        <p>Notre équipe est présente sur place en permanence. Certification de vos lignes d'abattage selon les normes islamiques strictes.</p>
+      </div>
+      <div class="pq-card rv">
+        <span class="pq-ico">🚚</span>
+        <h4>Distributeurs</h4>
+        <p>Garantissez à vos clients un produit certifié à chaque étape, de la source à la livraison, avec une traçabilité complète.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILIÈRES -->
+<section class="section bg-off">
+  <div class="container">
+    <div class="tc rv">
+      <span class="eyebrow eyebrow-blue">Viandes certifiées</span>
+      <h2 class="h2">Nos filières,<br><em>de l'élevage à l'assiette.</em></h2>
+      <div class="body-t"><p>Hal'Origin certifie l'ensemble de la filière — bovins, ovins, volailles — avec le même niveau d'exigence à chaque étape.</p></div>
+    </div>
+    <div class="animals-grid">
+      <div class="animal-card rv"><div class="a-img a-cow"></div><div class="a-info"><div class="a-badge"><span class="bdot"></span>Certifié Hal'Origin</div><div class="a-title">Bovins</div><div class="a-sub">Contrôle permanent · Estampille sur chaque carcasse</div></div></div>
+      <div class="animal-card rv"><div class="a-img a-sheep"></div><div class="a-info"><div class="a-badge"><span class="bdot"></span>Certifié Hal'Origin</div><div class="a-title">Ovins & Caprins</div><div class="a-sub">Basmallah prononcée · Traçabilité de l'oreille à l'étiquette</div></div></div>
+      <div class="animal-card rv"><div class="a-img a-chicken"></div><div class="a-info"><div class="a-badge"><span class="bdot"></span>Certifié Hal'Origin</div><div class="a-title">Volailles</div><div class="a-sub">Zéro étourdissement · Pic d'identification sur chaque carcasse</div></div></div>
+      <div class="animal-card rv"><div class="a-img a-beef"></div><div class="a-info"><div class="a-badge"><span class="bdot"></span>Certifié Hal'Origin</div><div class="a-title">Viande certifiée</div><div class="a-sub">0% VSM · Traçabilité complète producteur → assiette</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band"><div class="container" style="padding:0"><div class="stats-row">
+  <div class="stat rv"><div class="stat-n">100<span class="stat-accent">%</span></div><div class="stat-l">Traçabilité garantie</div></div>
+  <div class="stat rv"><div class="stat-n">365<span class="stat-accent">j</span></div><div class="stat-l">Contrôles inopinés / an</div></div>
+  <div class="stat rv"><div class="stat-n">∞</div><div class="stat-l">Présence permanente en abattoir</div></div>
+</div></div></div>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-box rv">
+      <h2>Vous êtes professionnel ?</h2>
+      <p>Rejoignez le réseau Hal'Origin. Boucheries, restaurants, ateliers de découpe — nous accueillons tout intervenant respectant notre cahier des charges.</p>
+      <a href="/contact" class="btn btn-white">Nous contacter →</a>
+    </div>
+  </div>
+</section>
+<script>
+let cur=0;const slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('.slide-dot');
+function gS(n){slides[cur].classList.remove('active');dots[cur].classList.remove('active');cur=n;slides[cur].classList.add('active');dots[cur].classList.add('active')}
+setInterval(()=>gS((cur+1)%slides.length),6000);
+</script>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div style="margin-bottom:1rem"><img src="logo (1)-Photoroom.png" alt="HAL'ORIGIN" style="height:60px;width:auto"></div>
+        <p style="font-size:.83rem;color:rgba(255,255,255,.72);max-width:230px;line-height:1.75">Certification Halal rigoureuse depuis 2020.<br>Traçabilité totale, zéro compromis.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="/">Accueil</a>
+        <a href="/apropos">À notre propos</a>
+        <a href="/halal">L'Islam &amp; le Halal</a>
+        <a href="/cahier">Cahier des charges</a>
+        <a href="/partenaires">Partenaires</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:0660243658">06 60 24 36 58</a>
+        <a href="mailto:halorigin.controle@gmail.com">halorigin.controle@gmail.com</a>
+        <span>4 place Claudel<br>78180 Montigny-le-Bretonneux</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Hal'Origin — Tous droits réservés</span>
+      <div class="footer-legal"><a href="/mentions-legales">Mentions légales</a><a href="/politique-de-confidentialite">Confidentialité</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60));
+const burger=document.getElementById('burger');
+const mobileMenu=document.getElementById('mobile-menu');
+burger.addEventListener('click',()=>{
+  const isOpen=mobileMenu.classList.contains('open');
+  mobileMenu.classList.toggle('open');
+  burger.classList.toggle('open');
+  burger.setAttribute('aria-expanded',String(!isOpen));
+  document.body.classList.toggle('menu-open');
+});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  mobileMenu.classList.remove('open');
+  burger.classList.remove('open');
+  burger.setAttribute('aria-expanded','false');
+  document.body.classList.remove('menu-open');
+}));
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&mobileMenu.classList.contains('open')){
+    mobileMenu.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    document.body.classList.remove('menu-open');
+  }
+});
+window.addEventListener('resize',()=>{
+  if(window.innerWidth>900){
+    mobileMenu.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    document.body.classList.remove('menu-open');
+  }
+});
+const io=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*80);io.unobserve(e.target)}})},{threshold:.07});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('.acc-btn').forEach(btn=>{btn.addEventListener('click',()=>{const o=btn.classList.contains('open');document.querySelectorAll('.acc-btn').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});if(!o){btn.classList.add('open');btn.nextElementSibling.classList.add('open')}})});
+</script>
+
+</body>
+</html>
