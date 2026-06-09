@@ -427,24 +427,6 @@ body.menu-open{overflow:hidden}
     </div>
   </div>
 </section>
-<script>
-const f=document.getElementById('cf');
-// FORMSPREE : créez un compte gratuit sur formspree.io et remplacez YOUR_FORM_ID par votre identifiant
-const FORMSPREE_ID='xvgqrkwz';
-if(f)f.addEventListener('submit',async e=>{
-  e.preventDefault();
-  const btn=f.querySelector('button[type=submit]');
-  const orig=btn.textContent;
-  btn.textContent='Envoi en cours...';
-  btn.disabled=true;
-  try{
-    const r=await fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});
-    if(r.ok){document.getElementById('formWrap').style.display='none';document.getElementById('formSuccess').style.display='block';}
-    else{btn.textContent='Erreur — réessayez';btn.disabled=false;}
-  }catch{btn.textContent='Erreur réseau — réessayez';btn.disabled=false;}
-});
-</script>
-
 
 <footer class="footer">
   <div class="container">
