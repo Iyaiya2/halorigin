@@ -277,10 +277,10 @@ body.menu-open{overflow:hidden}
 .a-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .55s}
 .animal-card:hover .a-img{transform:scale(1.05)}
 .a-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,31,78,.9) 0%,rgba(10,31,78,.2) 50%,transparent 100%)}
-.a-cow{background-image:url('bovins.jpg')}
-.a-sheep{background-image:url('ovins.jpg')}
-.a-chicken{background-image:url('volailles.jpg')}
-.a-beef{background-image:url('viande.jpg')}
+.a-cow{background-image:url('/images/bovins.jpg')}
+.a-sheep{background-image:url('/images/ovins.jpg')}
+.a-chicken{background-image:url('/images/volailles.jpg')}
+.a-beef{background-image:url('/images/viande.jpg')}
 .a-info{position:absolute;bottom:0;left:0;right:0;padding:1.75rem 1.5rem;z-index:1}
 .a-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:.25rem .7rem;font-family:'Montserrat',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:white;margin-bottom:.65rem}
 .bdot{width:5px;height:5px;border-radius:50%;background:#4ade80}
@@ -488,7 +488,7 @@ body.menu-open{overflow:hidden}
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo">
-      <img src="logo (1)-Photoroom.png" alt="HAL'ORIGIN" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <img src="/images/logo (1)-Photoroom.png" alt="HAL'ORIGIN" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="nav-logo-fallback">HO</div>
       <div class="nav-logo-text">
         <span class="nav-logo-name">HAL'ORIGIN</span>
@@ -529,12 +529,12 @@ body.menu-open{overflow:hidden}
 
 <section class="hero" id="hero">
   <div class="hero-slides">
-    <div class="hero-slide active" id="s0"><img src="R.jpg" alt=""></div>
-    <div class="hero-slide" id="s1"><img src="E.jpg" alt=""></div>
-    <div class="hero-slide" id="s2"><img src="t.jpg" alt=""></div>
+    <div class="hero-slide active" id="s0"><img src="/images/R.jpg" alt=""></div>
+    <div class="hero-slide" id="s1"><img src="/images/E.jpg" alt=""></div>
+    <div class="hero-slide" id="s2"><img src="/images/t.jpg" alt=""></div>
   </div>
   <div class="hero-overlay"></div><div class="hero-vignette"></div><div class="hero-grain"></div><div class="hero-glow"></div><div class="hero-bot-fade"></div>
-  <div class="hero-logo-watermark"><img src="logo (1)-Photoroom.png" alt=""></div>
+  <div class="hero-logo-watermark"><img src="/images/logo (1)-Photoroom.png" alt=""></div>
   <div class="slide-dots">
     <div class="slide-dot active" onclick="gS(0)"></div>
     <div class="slide-dot" onclick="gS(1)"></div>
@@ -588,7 +588,7 @@ body.menu-open{overflow:hidden}
       </div>
       <div class="rv">
         <div class="histoire-img-wrap">
-          <img src="logo (1)-Photoroom.png" alt="Hal'Origin" class="histoire-logo-big">
+          <img src="/images/logo (1)-Photoroom.png" alt="Hal'Origin" class="histoire-logo-big">
           <div class="histoire-badge histoire-badge-tl"><span>Engagement</span><strong>Halal Authentique</strong></div>
           <div class="histoire-badge histoire-badge-br"><span>Certifié depuis</span><strong>2020+</strong></div>
         </div>
@@ -776,7 +776,7 @@ setInterval(()=>gS((cur+1)%slides.length),6000);
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col">
-        <div style="margin-bottom:1rem"><img src="logo (1)-Photoroom.png" alt="HAL'ORIGIN" style="height:60px;width:auto"></div>
+        <div style="margin-bottom:1rem"><img src="/images/logo (1)-Photoroom.png" alt="HAL'ORIGIN" style="height:60px;width:auto"></div>
         <p style="font-size:.83rem;color:rgba(255,255,255,.72);max-width:230px;line-height:1.75">Certification Halal rigoureuse depuis 2020.<br>Traçabilité totale, zéro compromis.</p>
       </div>
       <div class="footer-col">
