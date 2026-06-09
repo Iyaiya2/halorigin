@@ -367,6 +367,7 @@ body.menu-open{overflow:hidden}
             <div class="form-title">Envoyez-nous<br>un message</div>
             <div class="form-sub">Certification, partenariat, question sur le Halal — nous répondons à tout.</div>
             <form id="cf">
+              <input type="hidden" name="_replyto" id="replyto-hidden">
               <div class="form-grid2">
                 <div class="form-field"><label class="form-label">Prénom *</label><input type="text" name="prenom" class="form-input" placeholder="Mohammed" required></div>
                 <div class="form-field"><label class="form-label">Nom *</label><input type="text" name="nom" class="form-input" placeholder="Dupont" required></div>
@@ -393,8 +394,14 @@ body.menu-open{overflow:hidden}
                 </select>
               </div>
               <div class="form-field"><label class="form-label">Message *</label><textarea name="message" class="form-textarea" placeholder="Décrivez votre demande en détail..." required></textarea></div>
-              <button type="submit" class="btn btn-navy" style="width:100%;justify-content:center">Envoyer le message →</button>
+              <div id="form-err" style="display:none;background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.3);border-radius:8px;padding:.85rem 1.1rem;font-size:.82rem;color:#f87171;margin-bottom:1rem">Une erreur est survenue. Réessayez ou contactez-nous directement par email.</div>
+              <button type="submit" id="cf-btn" class="btn btn-navy" style="width:100%;justify-content:center">Envoyer le message →</button>
             </form>
+            <div id="form-ok" style="display:none;text-align:center;padding:3rem 1rem">
+              <div style="width:56px;height:56px;background:rgba(34,197,94,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div style="font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:800;color:white;margin-bottom:.5rem">Message envoyé !</div>
+              <p style="font-size:.85rem;color:rgba(255,255,255,.65);max-width:280px;margin:0 auto">Nous vous répondrons dans les plus brefs délais à l'adresse indiquée.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -507,6 +514,42 @@ window.addEventListener('resize',()=>{
 const io=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*80);io.unobserve(e.target)}})},{threshold:.07});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 document.querySelectorAll('.acc-btn').forEach(btn=>{btn.addEventListener('click',()=>{const o=btn.classList.contains('open');document.querySelectorAll('.acc-btn').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});if(!o){btn.classList.add('open');btn.nextElementSibling.classList.add('open')}})});
+
+// ── Formulaire de contact (Formspree) ──────────────────────────────────────
+// Remplace YOUR_FORM_ID par l'ID obtenu sur formspree.io après inscription
+const FORMSPREE_ID = 'xojzwrjv';
+const form = document.getElementById('cf');
+const formOk = document.getElementById('form-ok');
+const formErr = document.getElementById('form-err');
+const cfBtn = document.getElementById('cf-btn');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  formErr.style.display = 'none';
+  cfBtn.disabled = true;
+  cfBtn.textContent = 'Envoi en cours…';
+
+  // Synchronise _replyto avec l'email saisi
+  document.getElementById('replyto-hidden').value = form.querySelector('[name="email"]').value;
+
+  try {
+    const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      formOk.style.display = 'block';
+    } else {
+      throw new Error();
+    }
+  } catch(_) {
+    formErr.style.display = 'block';
+    cfBtn.disabled = false;
+    cfBtn.textContent = 'Envoyer le message →';
+  }
+});
 </script>
 
 </body>
